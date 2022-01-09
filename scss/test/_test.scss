@@ -1,0 +1,14 @@
+$fond: #161B25;
+$font: #FDE7D1;
+
+body {
+    background :$fond ;
+    color: $font;
+    font-family: sans-serif;
+}
+
+ul {
+    list-style: none;
+    margin:0;
+    padding: 0;
+}

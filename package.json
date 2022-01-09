@@ -1,0 +1,35 @@
+{
+    "name": "liste-de-lecture",
+    "version": "1.0.0",
+    "description": "",
+    "contributors": [
+        {
+            "name": "Pierre Tampon-Lajarriette",
+            "url": "https://pierre.tl"
+        }
+    ],
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pierretl/liste-de-lecture.git"
+    },
+    "keywords": [],
+    "license": "GPL-3.0-only",
+    "bugs": {
+        "url": "https://github.com/pierretl/liste-de-lecture/issues"
+    },
+    "homepage": "https://github.com/pierretl/liste-de-lecture#readme",
+    "devDependencies": {
+        "browser-sync": "^2.27.7",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^8.0.0",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-mode": "^1.1.0",
+        "gulp-sass": "^5.1.0",
+        "gulp-sourcemaps": "^2.6.5",
+        "sass": "^1.47.0"
+    }
+}
