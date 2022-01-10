@@ -1,10 +1,14 @@
 $site-l--max: 600px;
 $site-l--col: calc($site-l--max / 2);
 
+$nav-padding-top: $espace-s;
+$nav-padding-bottom: $espace-s;
+
 .s_site {
+    position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, $site-l--col) minmax(0, $site-l--col) minmax(0, 1fr);
-    grid-template-rows: minmax(0, auto) auto minmax(0, auto);
+    grid-template-rows: minmax(0, auto) auto;
     height: 100vh;
 }
 
@@ -17,9 +21,20 @@ $site-l--col: calc($site-l--max / 2);
     grid-column: 2/4;
     grid-row: 2/3;
     overflow-x: auto;
+    margin-bottom: calc($nav-padding-top + $font-base + $nav-padding-bottom);
 }
 
-.s_site\:nav {
-    grid-column: 2/4;
-    grid-row: 3/4;
+
+
+
+
+
+
+.s_nav {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: $nav-padding-top;
+    padding-bottom: $nav-padding-bottom;
 }

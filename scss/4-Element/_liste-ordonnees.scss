@@ -5,8 +5,10 @@
 .lo1 li {
     list-style-type: none;
     counter-increment: nb;
-    margin-bottom: $espace-s;
     display: flex;
+}
+.lo1 li:not(:last-child) {
+    margin-bottom: $espace-s;
 }
 .lo1 li:before {
     content: counter(nb);
