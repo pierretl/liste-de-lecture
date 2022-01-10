@@ -1,0 +1,18 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+  
+    min-height: 100vh;
+  
+    background-color: var(--gamme1__fond);
+    font-family: sans-serif;
+    color: var(--gamme1__texte1);
+}
+
+ol {
+    margin: 0;
+}

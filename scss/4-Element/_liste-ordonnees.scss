@@ -1,0 +1,15 @@
+.lo1 {
+    counter-reset: nb;
+    padding: 0;
+}
+.lo1 li {
+    list-style-type: none;
+    counter-increment: nb;
+    margin-bottom: $espace-s;
+    display: flex;
+}
+.lo1 li:before {
+    content: counter(nb);
+    color: var(--gamme1__texte2);
+    margin-right: $espace-s;
+}
