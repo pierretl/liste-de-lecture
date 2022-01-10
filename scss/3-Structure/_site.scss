@@ -4,7 +4,8 @@ $site-l--col: calc($site-l--max / 2);
 .s_site {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, $site-l--col) minmax(0, $site-l--col) minmax(0, 1fr);
-    grid-template-rows: minmax(0, auto) 1fr minmax(0, auto);
+    grid-template-rows: minmax(0, auto) auto minmax(0, auto);
+    height: 100vh;
 }
 
 .s_site\:header {
@@ -15,6 +16,7 @@ $site-l--col: calc($site-l--max / 2);
 .s_site\:main {
     grid-column: 2/4;
     grid-row: 2/3;
+    overflow-x: auto;
 }
 
 .s_site\:nav {
