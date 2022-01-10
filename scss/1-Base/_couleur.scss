@@ -8,6 +8,10 @@ $greyChateau: #9DA6B6;
 $orangeyRed: #F54B2A;
 $albescentWhite: #FDE7D1;
 
+// pour thème clair
+$kashmirBlue: #576A94;
+$thunderbird: #C8301B;
+
 
 /*--------------------------------------------------------------------*/
 /* Thème Foncé (défaut)                                               */
@@ -16,6 +20,7 @@ $albescentWhite: #FDE7D1;
     --gamme1__fond: #{$mirage};
     --gamme1__texte1: #{$albescentWhite};
     --gamme1__texte2: #{$greyChateau};
+    --gamme1__texte3: #{$orangeyRed};
   }
   
   
@@ -23,5 +28,8 @@ $albescentWhite: #FDE7D1;
   /* Thème Clair                                                        */
   /*--------------------------------------------------------------------*/
   [data-mode="light"] {
-    
+    --gamme1__fond: #{$albescentWhite};
+    --gamme1__texte1: #{$gunmetal};
+    --gamme1__texte2: #{$kashmirBlue};
+    --gamme1__texte3: #{$thunderbird};
   }

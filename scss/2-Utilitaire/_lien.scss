@@ -1,0 +1,11 @@
+.a.tg1-1 // label, button...
+{
+    color: var(--gamme1__texte1);
+    text-decoration: underline;
+}
+
+.a.tg1-1:hover // label, button...
+{
+    color: var(--gamme1__texte3);
+    cursor: pointer;
+}
