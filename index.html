@@ -15,7 +15,7 @@
         </header>
         <main class="s_site:main p-s">
             <ol class="lo1">
-                <li>Prototype liste de lecture</li>
+                <li>Dépôt, déploiement et sous-domaine</li>
                 <li>Installation du build intégration</li>
                 <li>Mise en place de la structure de base</li>
                 <li>Défilement de la zone de contenu uniquement</li>
@@ -25,10 +25,8 @@
                     <label for="switch-theme" class="tg1-1 a">
                         Basculer en mode <span class="js--switch-clair">claire</span><span class="js--switch-sombre hide">sombre</span>
                     </label>
-                    &nbsp;
-                    <span class="clignote">_</span>
                 </li>
-                <li></li>
+                <li>Fusion et minification des JavaScripts<span class="clignote">_</span></li>
                 <li></li>
                 <li></li>
                 <li></li>
@@ -50,39 +48,6 @@
         <nav class="s_nav text-center tg1-1">
             menu
         </nav>
-        <script>
-            const toggleSwitch = document.querySelector(".js--switch");
-            const labelClair = document.querySelector(".js--switch-clair");
-            const labelSombre = document.querySelector(".js--switch-sombre");
-            const currentMode = localStorage.getItem('mode');
-
-            if (currentMode){
-                document.documentElement.setAttribute('data-mode', currentMode);
-                if (currentMode === 'light') {
-                    toggleSwitch.checked = true;
-                    labelClair.classList.add('hide');
-                    labelSombre.classList.remove('hide');
-                } else {
-                    labelClair.classList.remove('hide');
-                    labelSombre.classList.add('hide');
-                }
-            }
-
-            function switchMode(e) {
-                if (e.target.checked) {
-                    document.documentElement.setAttribute('data-mode', 'light');
-                    localStorage.setItem('mode', 'light');
-                    labelClair.classList.add('hide');
-                    labelSombre.classList.remove('hide');
-                }else{
-                    document.documentElement.setAttribute('data-mode', 'dark');
-                    localStorage.setItem('mode', 'dark');
-                    labelClair.classList.remove('hide');
-                    labelSombre.classList.add('hide');
-                }
-            }
-
-            toggleSwitch.addEventListener('change', switchMode, false);
-        </script>
+        <script src="script.min.js"></script>
     </body>
 </html>

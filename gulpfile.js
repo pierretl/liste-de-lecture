@@ -5,10 +5,13 @@ const minify = require('gulp-clean-css');
 const sourcemaps = require('gulp-sourcemaps');
 const mode = require('gulp-mode')();
 const browserSync = require('browser-sync').create();
+const concat = require('gulp-concat');
+const rename = require('gulp-rename');
+const uglify = require('gulp-uglify');
 
 
-// compilation pour la dev
-function dev(){
+// compilation des styles CSS
+function styles(){
     // Emplacement des fichiers .scss
     return gulp.src('./scss/style.scss')
     // Source map
@@ -27,6 +30,16 @@ function dev(){
         .pipe(mode.development( browserSync.stream() ));
 }
 
+// compilation des scripts JavaScript
+function scriptJs(){
+    return gulp.src('./js/*.js')
+        .pipe(concat('script.js'))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(uglify())
+        .pipe(gulp.dest('./'))
+        .pipe(mode.development( browserSync.stream() ));
+}
+
 // watch
 function watch() {
     browserSync.init({
@@ -34,9 +47,9 @@ function watch() {
             baseDir: './'
         }
     });
-    gulp.watch('./scss/**/*.scss', dev);
+    gulp.watch('./scss/**/*.scss', styles);
     gulp.watch('./*.html').on('change', browserSync.reload);
-    gulp.watch('./js/**/*.js').on('change', browserSync.reload);
+    gulp.watch('./js/**/*.js', scriptJs);
 }
 
 // Compilation pour la prod
