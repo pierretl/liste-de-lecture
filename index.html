@@ -10,7 +10,7 @@
         <link rel="canonical" href=https://lecture.pierre.tl/>
     </head>
     <body class="s_site">
-        <header class="s_site:header p-s text-center tg1-1">
+        <header class="s_site:header p-s text-center tg1-1 js--btn-menu">
             header
         </header>
         <main class="s_site:main p-s">
@@ -26,9 +26,9 @@
                         Basculer en mode <span class="js--switch-clair">claire</span><span class="js--switch-sombre hide">sombre</span>
                     </label>
                 </li>
-                <li>Fusion et minification des JavaScripts<span class="clignote">_</span></li>
-                <li></li>
-                <li></li>
+                <li>Fusion et minification des JavaScripts</li>
+                <li>Implémentation du menu</li>
+                <li><span>Paramétrage de la position du menu à l'arrivée sur le site et dans le menu<span class="clignote">_</span></span></li>
                 <li></li>
                 <li></li>
                 <li></li>
@@ -45,7 +45,21 @@
                 <li><span class="clignote">_</span></li>
             </ol>
         </main>
-        <nav class="s_nav text-center tg1-1">
+        <ul class="s_site:menu js--menu hide">
+            <li>
+                <button class="js--btn-menu">Fermer le menu</button>
+            </li>
+            <li>
+                <button class="js--btn-position">Changer la position du menu</button>
+            </li>
+        </ul>
+        <button class="s_site:gauche js--gauche hide">
+            Menu à gauche
+        </button>
+        <button class="s_site:droite js--droite hide">
+            Menu à droite
+        </button>
+        <nav class="s_option text-center tg1-1 js--btn-menu">
             menu
         </nav>
         <script src="script.min.js"></script>

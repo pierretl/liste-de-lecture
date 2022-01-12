@@ -7,9 +7,11 @@ $nav-padding-bottom: $espace-s;
 .s_site {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, $site-l--col) minmax(0, $site-l--col) minmax(0, 1fr);
+    grid-template-columns: minmax(0, auto) minmax(0, $site-l--col) minmax(0, $site-l--col) minmax(0, auto);
     grid-template-rows: minmax(0, auto) auto;
     height: 100vh;
+    max-width: $site-l--max;
+    margin: 0 auto;
 }
 
 .s_site\:header {
@@ -23,14 +25,43 @@ $nav-padding-bottom: $espace-s;
     overflow-x: auto;
     margin-bottom: calc($nav-padding-top + $font-base + $nav-padding-bottom);
 }
+[data-position="gauche"] .s_site\:menu {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+[data-position="droite"] .s_site\:menu {
+    grid-column: 4/5;
+    grid-row: 2/3;
+}
+.s_site\:gauche {
+    position: relative;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+.s_site\:droite {
+    position: relative;
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+.s_site\:gauche:before,
+.s_site\:droite:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--gamme1__fond);
+    opacity: 0.7;
+    z-index: 0;
+}
 
 
 
 
 
 
-
-.s_nav {
+.s_option {
     position: fixed;
     right: 0;
     bottom: 0;
