@@ -8,7 +8,7 @@ $nav-padding-bottom: $espace-s;
     position: relative;
     display: grid;
     grid-template-columns: minmax(0, auto) minmax(0, $site-l--col) minmax(0, $site-l--col) minmax(0, auto);
-    grid-template-rows: minmax(0, auto) auto;
+    grid-template-rows: minmax(0, auto) 1fr;
     height: 100vh;
     max-width: $site-l--max;
     margin: 0 auto;
