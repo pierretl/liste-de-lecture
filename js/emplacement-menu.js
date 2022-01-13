@@ -2,6 +2,8 @@ const currentPosition = localStorage.getItem('positionMenu');
 const btnGauche = document.querySelector(".js--gauche");
 const btnDroite = document.querySelector(".js--droite");
 const btnPosition = document.querySelector(".js--btn-position");
+const zoneMain = document.querySelector(".js--main");
+const classOverlay = document.documentElement.dataset.classOverlay;
 
 if (currentPosition){
     document.documentElement.dataset.position = currentPosition;
@@ -10,6 +12,7 @@ if (currentPosition){
 } else {
     btnGauche.classList.remove('hide');
     btnDroite.classList.remove('hide');
+    zoneMain.classList.add(classOverlay);
 }
 
 function changePosition(e) {
@@ -21,6 +24,7 @@ function changePosition(e) {
     document.documentElement.dataset.position = localStorage.getItem('positionMenu');
     btnGauche.classList.add('hide');
     btnDroite.classList.add('hide');
+    zoneMain.classList.remove(classOverlay);
     if (menu.classList.contains('js--reste-afficher')) {
         menu.classList.remove('hide');
     }
@@ -29,6 +33,7 @@ function changePosition(e) {
 function choixPosition() {
     btnGauche.classList.remove('hide');
     btnDroite.classList.remove('hide');
+    zoneMain.classList.add(classOverlay);
     menu.classList.add('hide');
     menu.classList.add('js--reste-afficher');
 }

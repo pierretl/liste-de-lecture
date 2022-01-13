@@ -1,5 +1,15 @@
 @import "../5-Satellite/unite";
 
 $font-base: 1rem;
+$taille-picto: 24px;
+$taille-bordure: 2px;
 
 $espace-s: rem-calc(16);
+
+$site-l--max: 600px;
+$site-l--col: calc($site-l--max / 2);
+
+$nav-padding-top: $espace-s;
+$nav-padding-bottom: $espace-s;
+
+$hauteur-s_option: calc($taille-bordure + $nav-padding-top + $taille-picto + $nav-padding-bottom);

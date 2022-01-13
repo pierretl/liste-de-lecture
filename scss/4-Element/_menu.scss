@@ -1,0 +1,21 @@
+.ul\:menu {
+    background-color: var(--gamme2__fond);
+    padding: 1rem;
+}
+
+.ul\:menu li{
+    margin-bottom: 1rem;
+}
+
+.ul\:menu .btn\:js svg {
+    fill: var(--gamme2__btn);
+}
+
+
+
+
+
+
+.ul\:menu .btn\:js:hover svg {
+    fill: var(--gamme2__btn--hover);
+}

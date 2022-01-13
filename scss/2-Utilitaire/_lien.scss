@@ -6,6 +6,16 @@
 
 .a.tg1-1:hover // label, button...
 {
-    color: var(--gamme1__texte3);
+    color: var(--gamme1__btn--hover);
     cursor: pointer;
+}
+
+.btn\:js:hover {
+    cursor: pointer;
+}
+.btn\:js:hover svg {
+    fill: var(--gamme1__btn--hover);
+}
+.btn\:js:hover *{
+    color: var(--gamme1__btn--hover);
 }

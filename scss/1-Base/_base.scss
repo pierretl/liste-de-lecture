@@ -3,15 +3,33 @@
 }
 
 body {
-    margin: 0;
     padding: 0;
-  
     background-color: var(--gamme1__fond);
     font-family: sans-serif;
     font-size: 1rem;
     color: var(--gamme1__texte1);
 }
 
+body,
+h1,
+ul,
 ol {
     margin: 0;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 1rem;
+    color: var(--gamme1__texte3);
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+button {
+    border: 0 none;
+    background-color: transparent;
+    padding: 0;
 }

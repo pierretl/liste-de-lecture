@@ -1,0 +1,29 @@
+.btn\:choix--gauche,
+.btn\:choix--droite {
+    color: var(--gamme1__btn);
+    font-size: 2rem;
+    margin-bottom: $hauteur-s_option;
+}
+
+.btn\:choix--gauche {
+    text-align: right;
+    border-right: 1px solid var(--gamme1__bordure);
+    padding-right: 40px;
+}
+
+.btn\:choix--droite {
+    text-align: left;
+    border-left: 1px solid var(--gamme1__bordure);
+    padding-left: 40px;
+}
+
+
+
+
+
+
+.btn\:choix--gauche:hover,
+.btn\:choix--droite:hover {
+    cursor: pointer;
+    color: var(--gamme1__btn--hover);
+}

@@ -1,16 +1,24 @@
 /*--------------------------------------------------------------------*/
 /* Couleurs                                                           */
 /*--------------------------------------------------------------------*/
+
+// pour thème sombre
 $mirage: #161B25;
 $gunmetal: #2B303A;
 $greyChateau: #9DA6B6;
+$test6: #CAD3E2;
 
 $orangeyRed: #F54B2A;
 $albescentWhite: #FDE7D1;
 
 // pour thème clair
-$kashmirBlue: #576A94;
-$thunderbird: #C8301B;
+$test1: #F7F8FA;
+$test2: #c7c9c6;
+$test3: #585858;
+
+$test4: #D65758;
+$test7: #720001;
+$test5: #1d242a;
 
 
 /*--------------------------------------------------------------------*/
@@ -21,15 +29,29 @@ $thunderbird: #C8301B;
     --gamme1__texte1: #{$albescentWhite};
     --gamme1__texte2: #{$greyChateau};
     --gamme1__texte3: #{$orangeyRed};
-  }
+    --gamme1__bordure: #{$gunmetal};
+    --gamme1__btn: #{$orangeyRed};
+    --gamme1__btn--hover: #{$albescentWhite};
+
+    --gamme2__fond: #{$gunmetal};
+    --gamme2__btn: #{$test6};
+    --gamme2__btn--hover: #{$albescentWhite};
+}
   
   
-  /*--------------------------------------------------------------------*/
-  /* Thème Clair                                                        */
-  /*--------------------------------------------------------------------*/
-  [data-mode="light"] {
-    --gamme1__fond: #{$albescentWhite};
-    --gamme1__texte1: #{$gunmetal};
-    --gamme1__texte2: #{$kashmirBlue};
-    --gamme1__texte3: #{$thunderbird};
-  }
+/*--------------------------------------------------------------------*/
+/* Thème Clair                                                        */
+/*--------------------------------------------------------------------*/
+[data-mode="light"] {
+    --gamme1__fond: #{$test1};
+    --gamme1__texte1: #{$test5};
+    --gamme1__texte2: #{$test3};
+    --gamme1__texte3: #{$test4};
+    --gamme1__bordure: #{$test2};
+    --gamme1__btn: #{$test4};
+    --gamme1__btn--hover: #{$test3};
+
+    --gamme2__fond: #{$test2};
+    --gamme2__btn: #{$test7};
+    --gamme2__btn--hover: #{$test5};
+}
