@@ -19,7 +19,12 @@
             <h1>Liste de lecture</h1>
         </header>
         <main class="s_site:main p-s js--main">
-            <ol class="lo1">
+            <p>
+                Prototype en cours de développement !
+                <br>
+                <button class="tg1-1 a js--btn-suivi">Afficher le suivi de projet</button>
+            </p>
+            <ol class="lo1 hide js--suivi last-li-clignote">
                 <li>Dépôt, déploiement et sous-domaine</li>
                 <li>Installation du build intégration</li>
                 <li>Mise en place de la structure de base</li>
@@ -30,20 +35,8 @@
                 <li>Implémentation du menu</li>
                 <li>Paramétrage de la position du menu à l'arrivée sur le site et dans le menu</li>
                 <li>Ajout de quelques icônes et styles (en cours)</li>
-                <li><span>Ajustement des couleurs et z-index<span class="clignote">_</span></span></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li><span class="clignote">_</span></li>
+                <li>Ajustement des couleurs et z-index</li>
+                <li>Suivi de projet visible par la navigation</li>
             </ol>
         </main>
         <ul class="s_site:menu js--menu hide ul:menu">
@@ -80,6 +73,14 @@
                     </svg>
                 </button>
             </li>
+            <li>
+                <button class="btn:js js--btn-suivi">
+                    <span class="sr-only">Suivi de projet</span>
+                    <svg class="svg:btn" aria-hidden="true" focusable="false">
+                        <use xlink:href="#merge"></use>
+                    </svg>
+                </button>
+            </li>
         </ul>
         <button class="s_site:gauche js--gauche btn:choix--gauche hide">
             main<br>gauche
@@ -113,6 +114,9 @@
             </symbol>
             <symbol id="main" viewBox="0 0 448 512" aria-hidden="true">
                 <path d="M369.4 119.1V96.3c0-42.8-42.8-72.8-82.3-56.5-19.8-54.2-94.4-52.2-112.5.8-38.4-15.8-81.8 12.8-81.8 55.9v145.7c-20.3-13.7-47.6-13.9-68.4 1.5-26.6 19.6-32.4 57.1-13.1 83.9l125 174.4c4.5 6.3 11.8 10 19.5 10H388c11.2 0 20.9-7.7 23.4-18.6l31.4-135.6c3.4-14.8 5.2-30 5.2-45.3V176.2c0-41.5-40.6-70.1-78.6-57.1zM416 312.5c0 12.8-1.5 25.6-4.4 38l-30 129.4H159.9l-122.6-171c-9-12.6-6.3-30.4 6.1-39.5 12.3-9.1 29.6-6.4 38.6 6.2l28.3 39.4c4.5 6.3 14.5 3.1 14.5-4.7V96.5c0-38 55.4-36.9 55.4.7V256c0 4.4 3.6 8 8 8h7.1c4.4 0 8-3.6 8-8V60.2c0-38 55.4-36.9 55.4.7v195c0 4.4 3.6 8 8 8h7.1c4.4 0 8-3.6 8-8V95.6c0-38 55.4-36.9 55.4.7V256c0 4.4 3.6 8 8 8h7.1c4.4 0 8-3.6 8-8v-79c0-37.6 55.4-38.8 55.4-.7v136.2z"></path>
+            </symbol>
+            <symbol id="merge" viewBox="0 0 384 512" aria-hidden="true">
+                <path d="M304 192c-41.7 0-76 32-79.7 72.8-25.2-1.3-61.6-7.9-88.8-31.7-20.3-17.8-32.8-43-37.5-75.1 35.5-8.2 62-40 62-77.9 0-44.2-35.8-80-80-80S0 35.8 0 80c0 38.7 27.5 71 64 78.4v195.2C27.5 361 0 393.3 0 432c0 44.2 35.8 80 80 80s80-35.8 80-80c0-38.7-27.5-71-64-78.4V237.4c5.5 7.2 11.7 13.9 18.6 19.9C151 289 197.9 296.1 228 297c10.5 31.9 40.5 55 76 55 44.2 0 80-35.8 80-80s-35.8-80-80-80zM32 80c0-26.5 21.5-48 48-48s48 21.5 48 48-21.5 48-48 48-48-21.5-48-48zm96 352c0 26.5-21.5 48-48 48s-48-21.5-48-48 21.5-48 48-48 48 21.5 48 48zm176-112c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z"></path>
             </symbol>
         </svg>
         <script src="script.min.js"></script>
