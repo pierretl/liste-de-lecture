@@ -10,7 +10,7 @@
         <link rel="canonical" href=https://lecture.pierre.tl/>
     </head>
     <body class="s_site">
-        <header class="s_site:header p-s text-center tg1-1 btn:js js--btn-menu border:header">
+        <header class="s_site:header p-s text-center tg1-1 btn:js js--btn-menuDisplay border:header">
             <svg class="svg:btn" aria-hidden="true" focusable="false">
                 <use xlink:href="#logo">
                     <title>Options d'affichage</title>
@@ -37,48 +37,49 @@
                 <li>Ajout de quelques icônes et styles (en cours)</li>
                 <li>Ajustement des couleurs et z-index</li>
                 <li>Suivi de projet visible par la navigation</li>
+                <li>Ajout de label au survol du menu, repasse sur les couleurs du thème clair</li>
             </ol>
         </main>
-        <ul class="s_site:menu js--menu hide ul:menu">
+        <ul class="s_site:menu js--zoneMenu hide ul:menu">
             <li>
-                <button class="btn:js js--btn-menu">
-                    <span class="sr-only">Fermer le menu</span>
+                <button class="btn:js js--btn-menuDisplay js--btn-menu">
                     <svg class="svg:btn" aria-hidden="true" focusable="false">
                         <use xlink:href="#fermer"></use>
                     </svg>
+                    <span class="label:menu">Fermer le menu</span>
                 </button>
             </li>
             <li>
                 <input type="checkbox" id="switch-theme" class="hide-checkbox js--switch">
-                <label for="switch-theme" class="btn:js">
+                <label for="switch-theme" class="btn:js js--btn-menu">
                     <span class="js--switch-clair">
-                        <span class="sr-only">Changer pour un thème clair</span>
                         <svg class="svg:btn" aria-hidden="true" focusable="false">
                             <use xlink:href="#modeSombre"></use>
                         </svg>
+                        <span class="label:menu">Changer pour un thème clair</span>
                     </span>
                     <span class="js--switch-sombre hide">
-                        <span class="sr-only">Changer pour un thème sombre</span>
                         <svg class="svg:btn" aria-hidden="true" focusable="false">
                             <use xlink:href="#modeClair"></use>
                         </svg>
+                        <span class="label:menu">Changer pour un thème sombre</span>
                     </span>
                 </label>
             </li>
             <li>
-                <button class="btn:js js--btn-position">
-                    <span class="sr-only">Changer la position du menu</span>
+                <button class="btn:js js--btn-position js--btn-menu">
                     <svg class="svg:btn" aria-hidden="true" focusable="false">
                         <use xlink:href="#main"></use>
                     </svg>
+                    <span class="label:menu">Changer la position du menu</span>
                 </button>
             </li>
             <li>
-                <button class="btn:js js--btn-suivi">
-                    <span class="sr-only">Suivi de projet</span>
+                <button class="btn:js js--btn-suivi js--btn-menu">
                     <svg class="svg:btn" aria-hidden="true" focusable="false">
                         <use xlink:href="#merge"></use>
                     </svg>
+                    <span class="label:menu">Suivi de projet</span>
                 </button>
             </li>
         </ul>
@@ -89,7 +90,7 @@
             main<br>droite
         </button>
         <nav class="s_option text-center tg1-1">
-            <button class="btn:parametre btn:js p-s js--btn-menu">
+            <button class="btn:parametre btn:js p-s js--btn-menuDisplay">
                 <svg class="svg:btn" aria-hidden="true" focusable="false">
                     <use xlink:href="#parametre"></use>
                 </svg>

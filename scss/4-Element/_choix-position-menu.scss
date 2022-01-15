@@ -3,6 +3,7 @@
     color: var(--gamme1__btn);
     font-size: 2rem;
     margin-bottom: $hauteur-s_option;
+    @include z-index(s_site);
 }
 
 .btn\:choix--gauche {
