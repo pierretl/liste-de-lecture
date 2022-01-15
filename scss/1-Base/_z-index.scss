@@ -1,0 +1,14 @@
+$z-index: (
+    s_site          : 2,
+    overlay         : 1,
+    s_option        : 0,
+    clignote        : 0,
+);
+
+@function z-index($key) {
+    @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+    z-index: z-index($key);
+}

@@ -3,39 +3,41 @@
 /*--------------------------------------------------------------------*/
 
 // pour thème sombre
-$mirage: #161B25;
-$gunmetal: #2B303A;
-$greyChateau: #9DA6B6;
-$test6: #CAD3E2;
+$sombre1: #26292E;
+$sombre2: #393D43;
 
-$orangeyRed: #F54B2A;
-$albescentWhite: #FDE7D1;
+$sombre3: #F7F9F9;
+$sombre4: #C0D2DB;
+
+$sombre5: #FE9C70;
+$sombre6: #FFC2A6;
+
 
 // pour thème clair
-$test1: #F7F8FA;
-$test2: #c7c9c6;
-$test3: #585858;
+$clair1: #F8F8F8; 
+$clair2: #fff; 
 
-$test4: #D65758;
-$test7: #720001;
-$test5: #1d242a;
+$clair3: #170A0A; 
+$clair4: #545454; 
 
+$clair5: #9D3700; 
+$clair6: #C54906; 
 
 /*--------------------------------------------------------------------*/
 /* Thème Foncé (défaut)                                               */
 /*--------------------------------------------------------------------*/
 :root {
-    --gamme1__fond: #{$mirage};
-    --gamme1__texte1: #{$albescentWhite};
-    --gamme1__texte2: #{$greyChateau};
-    --gamme1__texte3: #{$orangeyRed};
-    --gamme1__bordure: #{$gunmetal};
-    --gamme1__btn: #{$orangeyRed};
-    --gamme1__btn--hover: #{$albescentWhite};
+    --gamme1__fond: #{$sombre1};
+    --gamme1__texte1: #{$sombre3};
+    --gamme1__texte2: #{$sombre4};
+    --gamme1__texte3: #{$sombre5};
+    --gamme1__bordure: #{$sombre2};
+    --gamme1__btn: #{$sombre5};
+    --gamme1__btn--hover: #{$sombre6};
 
-    --gamme2__fond: #{$gunmetal};
-    --gamme2__btn: #{$test6};
-    --gamme2__btn--hover: #{$albescentWhite};
+    --gamme2__fond: #{$sombre2};
+    --gamme2__btn: #{$sombre4};
+    --gamme2__btn--hover: #{$sombre3};
 }
   
   
@@ -43,15 +45,15 @@ $test5: #1d242a;
 /* Thème Clair                                                        */
 /*--------------------------------------------------------------------*/
 [data-mode="light"] {
-    --gamme1__fond: #{$test1};
-    --gamme1__texte1: #{$test5};
-    --gamme1__texte2: #{$test3};
-    --gamme1__texte3: #{$test4};
-    --gamme1__bordure: #{$test2};
-    --gamme1__btn: #{$test4};
-    --gamme1__btn--hover: #{$test3};
+    --gamme1__fond: #{$clair1};
+    --gamme1__texte1: #{$clair3};
+    --gamme1__texte2: #{$clair4};
+    --gamme1__texte3: #{$clair5};
+    --gamme1__bordure: #{$clair2};
+    --gamme1__btn: #{$clair5};
+    --gamme1__btn--hover: #{$clair6};
 
-    --gamme2__fond: #{$test2};
-    --gamme2__btn: #{$test7};
-    --gamme2__btn--hover: #{$test5};
+    --gamme2__fond: #{$clair2};
+    --gamme2__btn: #{$clair4};
+    --gamme2__btn--hover: #{$clair3};
 }

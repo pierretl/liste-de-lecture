@@ -1,21 +1,27 @@
-.a.tg1-1 // label, button...
-{
-    color: var(--gamme1__texte1);
+.a.tg1-1 {
+    color: var(--gamme1__btn);
     text-decoration: underline;
 }
-
-.a.tg1-1:hover // label, button...
-{
-    color: var(--gamme1__btn--hover);
+.a.tg1-1:hover {
     cursor: pointer;
 }
+.a.tg1-1:hover,
+.a.tg1-1:active {
+    color: var(--gamme1__btn--hover);
+}
+
+
+
+
 
 .btn\:js:hover {
     cursor: pointer;
 }
-.btn\:js:hover svg {
+.btn\:js:hover svg,
+.btn\:js:active svg {
     fill: var(--gamme1__btn--hover);
 }
-.btn\:js:hover *{
+.btn\:js:hover *,
+.btn\:js:active *{
     color: var(--gamme1__btn--hover);
 }

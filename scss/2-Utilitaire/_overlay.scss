@@ -10,5 +10,5 @@
     left: 0;
     background: var(--gamme1__fond);
     opacity: 0.9;
-    z-index: 0;
+    @include z-index(overlay);
 }

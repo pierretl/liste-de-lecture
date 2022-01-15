@@ -3,7 +3,7 @@
     animation: clignote 0.8s infinite;
 
     position: relative;
-    z-index: -1;
+    @include z-index(clignote);
 }
 
 @keyframes clignote {
