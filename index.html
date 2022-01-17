@@ -38,7 +38,51 @@
                 <li>Ajustement des couleurs et z-index</li>
                 <li>Suivi de projet visible par la navigation</li>
                 <li>Ajout de label au survol du menu, repasse sur les couleurs du thème clair</li>
+                <li>Correctif du overlay pour les écran tactile</li>
+                <li>Ajout d'une liste de démo + d'une recherche qui ne fonctionne pas</li>
             </ol>
+            <script id="handlebars-template" type="text/x-handlebars-template">
+                {{#each lectures}}
+                    <li>
+                        <ul>
+                            <li>
+                                <strong class="list_stock" data-stock="{{stock}}">
+                                    {{#if article}}<span class="list_info">{{article}}</span>{{/if}}<!--
+                                    --><span class="list_titre">{{titre}}</span>
+                                </strong>
+                            </li>
+                            <li>
+                                Note : <strong class="list_note">{{note}}</strong>/10
+                            </li>
+                            {{#if info}}
+                                <li>
+                                    <span class="list_info">{{info}}</span>
+                                </li>
+                            {{/if}}
+                            <li class="list_statut" data-statut="{{statut}}">
+                                {{#ifEquals statut "Terminé"}}
+                                    <small>(Terminé)</small>
+                                {{/ifEquals}}
+                                {{#ifEquals statut "En cours"}}
+                                    <small>(En cours)</small>
+                                {{/ifEquals}}
+                                {{#ifEquals statut "Abandonné"}}
+                                    <small>(Abandonné)</small>
+                                {{/ifEquals}}
+                            </li>
+                            <li>
+                                Volume : <strong>{{volume}}</strong>
+                                <hr>
+                            </li>
+                        </ul>
+                    </li>
+                {{/each}}
+            </script>
+            <div id="lectures" data-ready="">
+                <input placeholder="La recherche ne fonctionne pas" style="width: 100%;" />    
+                <hr>  
+                <ul id="handlebars-output"></ul>
+            </div>
         </main>
         <ul class="s_site:menu js--zoneMenu hide ul:menu">
             <li>
@@ -120,7 +164,9 @@
                 <path d="M304 192c-41.7 0-76 32-79.7 72.8-25.2-1.3-61.6-7.9-88.8-31.7-20.3-17.8-32.8-43-37.5-75.1 35.5-8.2 62-40 62-77.9 0-44.2-35.8-80-80-80S0 35.8 0 80c0 38.7 27.5 71 64 78.4v195.2C27.5 361 0 393.3 0 432c0 44.2 35.8 80 80 80s80-35.8 80-80c0-38.7-27.5-71-64-78.4V237.4c5.5 7.2 11.7 13.9 18.6 19.9C151 289 197.9 296.1 228 297c10.5 31.9 40.5 55 76 55 44.2 0 80-35.8 80-80s-35.8-80-80-80zM32 80c0-26.5 21.5-48 48-48s48 21.5 48 48-21.5 48-48 48-48-21.5-48-48zm96 352c0 26.5-21.5 48-48 48s-48-21.5-48-48 21.5-48 48-48 48 21.5 48 48zm176-112c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z"></path>
             </symbol>
         </svg>
-        <script src="modernizr.min.js"></script>
+        <script src="js-lib/modernizr.min.js"></script>
+        <script src="js-lib/handlebars.js"></script>
+        <script src="js-lib/list.min.js"></script>
         <script src="script.min.js"></script>
     </body>
 </html>
