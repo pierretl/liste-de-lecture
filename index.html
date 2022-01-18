@@ -40,6 +40,7 @@
                 <li>Ajout de label au survol du menu, repasse sur les couleurs du thème clair</li>
                 <li>Correctif du overlay pour les écran tactile</li>
                 <li>Ajout d'une liste de démo + d'une recherche qui ne fonctionne pas</li>
+                <li>Suppression de list.js qui ne fonctionne pas dans ce contexte, ajout de bouton de filtre par statut</li>
             </ol>
             <script id="handlebars-template" type="text/x-handlebars-template">
                 {{#each lectures}}
@@ -78,11 +79,24 @@
                     </li>
                 {{/each}}
             </script>
-            <div id="lectures" data-ready="">
-                <input placeholder="La recherche ne fonctionne pas" style="width: 100%;" />    
-                <hr>  
-                <ul id="handlebars-output"></ul>
-            </div>
+            <hr>
+            <h2>Lecture :</h2>
+            <ul>
+                <li>
+                    <button class="tg1-1 a" onclick="filtreParStatut('Abandonné')">Abandonné</button>
+                </li>
+                <li>
+                    <button class="tg1-1 a" onclick="filtreParStatut('Terminé')">Terminé</button>
+                </li>
+                <li>
+                    <button class="tg1-1 a" onclick="filtreParStatut('En cours')">En cours</button>
+                </li>
+                <li>
+                    <button class="tg1-1 a" onclick="filtreParStatut()">Toutes</button>
+                </li>
+            </ul>
+            <br>
+            <ul id="handlebars-output"></ul>
         </main>
         <ul class="s_site:menu js--zoneMenu hide ul:menu">
             <li>
@@ -166,7 +180,6 @@
         </svg>
         <script src="js-lib/modernizr.min.js"></script>
         <script src="js-lib/handlebars.js"></script>
-        <script src="js-lib/list.min.js"></script>
         <script src="script.min.js"></script>
     </body>
 </html>

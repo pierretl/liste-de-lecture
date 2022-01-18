@@ -23,6 +23,14 @@ fetch(endpoint1)
     }
   });
   //console.log(formatted);
+
+
+  // sauvegarde de la listes
+  window.allLectures = [];
+  for (const a of formatted) {
+    window.allLectures.push(a)
+  }
+
   
   Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
@@ -32,26 +40,42 @@ fetch(endpoint1)
     "lectures" : formatted
   };
 
+
   var template = Handlebars.compile(document.querySelector('#handlebars-template').innerHTML);
   var filled = template(data);
   document.querySelector('#handlebars-output').innerHTML = filled;
-  
-})
-.then(function(listjs) {
+ 
+});
 
-  var options = {
-    valueNames: [ 
-      'list_article',
-      'list_titre', 
-      'list_note', 
-      'list_info',
-      { attr: 'data-statut', name: 'list_statut' },
-      { attr: 'data-stock', name: 'list_stock' },
-    ]
+
+
+
+
+
+function filtreParStatut(statut) {
+
+  if (statut) {
+    window.statutLecture = [];
+    for (const a of window.allLectures) {
+      window.statutLecture.push(a)
+    }
+  
+    for (let i = 0; i < statutLecture.length; i++) {
+      if (statutLecture[i].statut != statut){
+        delete statutLecture[i];
+      }
+    } 
+  } else {
+    statutLecture = window.allLectures;
+  }
+
+  
+
+  var data = { 
+    "lectures" : statutLecture
   };
 
-  window.listeLecture = new List('lectures', options);
-  
-  
-  
-});
+  var template = Handlebars.compile(document.querySelector('#handlebars-template').innerHTML);
+  var filled = template(data);
+  document.querySelector('#handlebars-output').innerHTML = filled;
+}
