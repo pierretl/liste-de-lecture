@@ -20,6 +20,7 @@ fetch(endpoint1)
       info: originalItem.c[4] === null ? '' : originalItem.c[4].v,
       statut: originalItem.c[5] === null ? '' : originalItem.c[5].v,
       stock: originalItem.c[6] === null ? '' : originalItem.c[6].v,
+      type: originalItem.c[7] === null ? '' : originalItem.c[7].v,
     }
   });
   //console.log(formatted);
@@ -51,31 +52,66 @@ fetch(endpoint1)
 
 
 
+function filtrePar(colonne, valeur) {
 
-function filtreParStatut(statut) {
+  if( colonne && valeur ){
 
-  if (statut) {
-    window.statutLecture = [];
+    window.filtreLecture = [];
     for (const a of window.allLectures) {
-      window.statutLecture.push(a)
+      window.filtreLecture.push(a)
     }
   
-    for (let i = 0; i < statutLecture.length; i++) {
-      if (statutLecture[i].statut != statut){
-        delete statutLecture[i];
+    for (let i = 0; i < filtreLecture.length; i++) {
+      if (filtreLecture[i][colonne] != valeur){
+        delete filtreLecture[i];
       }
     } 
-  } else {
-    statutLecture = window.allLectures;
-  }
 
-  
+  } else {
+
+    filtreLecture = window.allLectures;
+
+  } 
 
   var data = { 
-    "lectures" : statutLecture
+    "lectures" : filtreLecture
   };
 
   var template = Handlebars.compile(document.querySelector('#handlebars-template').innerHTML);
   var filled = template(data);
   document.querySelector('#handlebars-output').innerHTML = filled;
+
+}
+
+
+
+
+
+function trieParNote() {
+
+  window.trieLecture = [];
+
+  var noteMax = 0;
+  for (var i = 0; i < window.allLectures.length; i++) {
+    if (window.allLectures[i].note > noteMax) {
+      noteMax = window.allLectures[i].note;
+    }
+  }
+
+  for (let j = noteMax; j >= 0; j--) {
+    for (let i = 0; i < window.allLectures.length; i++) {
+      if ( window.allLectures[i].note == j ) {
+        window.trieLecture.push(window.allLectures[i])
+      }
+    }
+  }
+
+  var data = { 
+    "lectures" : trieLecture
+  };
+
+  var template = Handlebars.compile(document.querySelector('#handlebars-template').innerHTML);
+  var filled = template(data);
+  document.querySelector('#handlebars-output').innerHTML = filled;
+
 }

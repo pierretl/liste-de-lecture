@@ -41,6 +41,8 @@
                 <li>Correctif du overlay pour les écran tactile</li>
                 <li>Ajout d'une liste de démo + d'une recherche qui ne fonctionne pas</li>
                 <li>Suppression de list.js qui ne fonctionne pas dans ce contexte, ajout de bouton de filtre par statut</li>
+                <li>Ajout d'un loader pendant le chargement des données</li>
+                <li>Ajout de quelques fitres et trie simple</li>
             </ol>
             <script id="handlebars-template" type="text/x-handlebars-template">
                 {{#each lectures}}
@@ -62,17 +64,19 @@
                             {{/if}}
                             <li class="list_statut" data-statut="{{statut}}">
                                 {{#ifEquals statut "Terminé"}}
-                                    <small>(Terminé)</small>
+                                    <small>{{type}} : Terminé</small>
                                 {{/ifEquals}}
                                 {{#ifEquals statut "En cours"}}
-                                    <small>(En cours)</small>
+                                    <small>{{type}} : En cours</small>
                                 {{/ifEquals}}
                                 {{#ifEquals statut "Abandonné"}}
-                                    <small>(Abandonné)</small>
+                                    <small>{{type}} : Abandonné</small>
                                 {{/ifEquals}}
                             </li>
                             <li>
                                 Volume : <strong>{{volume}}</strong>
+                                <br>
+                                <small>({{stock}})</small>
                                 <hr>
                             </li>
                         </ul>
@@ -80,23 +84,71 @@
                 {{/each}}
             </script>
             <hr>
-            <h2>Lecture :</h2>
-            <ul>
+            <h2>Tous</h2>
+            <ul class="d-flex">
                 <li>
-                    <button class="tg1-1 a" onclick="filtreParStatut('Abandonné')">Abandonné</button>
+                    <button class="tg1-1 a" onclick="filtrePar()">Tous / réinitialisé</button>
                 </li>
                 <li>
-                    <button class="tg1-1 a" onclick="filtreParStatut('Terminé')">Terminé</button>
+                    <ul>
+                        <li>
+                            <button class="tg1-1 a" onclick="trieParNote()">Trie par préférence</button>
+                        </li>
+                        <li>
+                            <button class="tg1-1 a" onclick="filtrePar()">Trie par abécédaire</button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h2>Filtre</h2>
+            <ul class="d-flex">
+                <li>
+                    <h3>Statut :</h3>
+                    <ul>
+                        <li>
+                            <button class="tg1-1 a" onclick="filtrePar('statut','Abandonné')">Abandonné</button>
+                        </li>
+                        <li>
+                            <button class="tg1-1 a" onclick="filtrePar('statut','Terminé')">Terminé</button>
+                        </li>
+                        <li>
+                            <button class="tg1-1 a" onclick="filtrePar('statut','En cours')">En cours</button>
+                        </li>
+                        <li>
+                            
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                    <button class="tg1-1 a" onclick="filtreParStatut('En cours')">En cours</button>
+                    <h3>Type :</h3>
+                    <ul>
+                        <li>
+                            <button class="tg1-1 a" onclick="filtrePar('type','Manga')">Manga</button>
+                        </li>
+                        <li>
+                            <button class="tg1-1 a" onclick="filtrePar('type','Comics')">Comics</button>
+                        </li>
+                        <li>
+                            <button class="tg1-1 a" onclick="filtrePar('type','Roman')">Roman</button>
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                    <button class="tg1-1 a" onclick="filtreParStatut()">Toutes</button>
+                    <h3>Stock :</h3>
+                    <ul>
+                        <li>
+                            <button class="tg1-1 a" onclick="filtrePar('stock','Possédé')">Possédé</button>
+                        </li>
+                        <li>
+                            <button class="tg1-1 a" onclick="filtrePar('stock','Vendu')">Vendu</button>
+                        </li>
+                    </ul>
                 </li>
             </ul>
             <br>
-            <ul id="handlebars-output"></ul>
+            <ul id="handlebars-output">
+                <li class="js--loader svg:loader"></li>
+            </ul>
         </main>
         <ul class="s_site:menu js--zoneMenu hide ul:menu">
             <li>
@@ -180,6 +232,7 @@
         </svg>
         <script src="js-lib/modernizr.min.js"></script>
         <script src="js-lib/handlebars.js"></script>
+        <script src="js-lib/lottie.min.js"></script>
         <script src="script.min.js"></script>
     </body>
 </html>
