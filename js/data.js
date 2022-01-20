@@ -37,14 +37,7 @@ fetch(endpoint1)
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
   });
   
-  var data = { 
-    "lectures" : formatted
-  };
-
-
-  var template = Handlebars.compile(document.querySelector('#handlebars-template').innerHTML);
-  var filled = template(data);
-  document.querySelector('#handlebars-output').innerHTML = filled;
+  update(formatted);
  
 });
 
@@ -52,66 +45,109 @@ fetch(endpoint1)
 
 
 
-function filtrePar(colonne, valeur) {
+function controle(formulaire, ordre) {
 
-  if( colonne && valeur ){
-
-    window.filtreLecture = [];
-    for (const a of window.allLectures) {
-      window.filtreLecture.push(a)
+  //récupération du choix du STATUT
+  const statut = formulaire.statut;
+  for (let i = 0; i < statut.length; i++) {
+    if (statut[i].checked) {
+      var valeurStatut = statut[i].value;
     }
-  
+  }
+
+  //récupération du choix du TYPE
+  const type = formulaire.type;
+  for (let i = 0; i < type.length; i++) {
+    if (type[i].checked) {
+      var valeurType = type[i].value;
+    }
+  }
+
+  //récupération du choix du STOCK
+  const stock = formulaire.stock;
+  for (let i = 0; i < stock.length; i++) {
+    if (stock[i].checked) {
+      var valeurStock = stock[i].value;
+    }
+  }
+
+  //nouveau tableau pour pas écraser les données complètes
+  window.filtreLecture = [];
+  for (const a of window.allLectures) {
+    window.filtreLecture.push(a);
+  }
+
+
+  //filtre STATUT
+  if (valeurStatut != "all"){
     for (let i = 0; i < filtreLecture.length; i++) {
-      if (filtreLecture[i][colonne] != valeur){
+      if (filtreLecture[i]["statut"] != valeurStatut){
         delete filtreLecture[i];
       }
-    } 
+    }
+    // ré-index le tablau
+    filtreLecture = filtreLecture.filter(function(val){return val});
+  }
 
-  } else {
 
-    filtreLecture = window.allLectures;
+  //filtre TYPE
+  if (valeurType != "all"){
+    for (let i = 0; i < filtreLecture.length; i++) {
+      if (filtreLecture[i]["type"] != valeurType){
+        delete filtreLecture[i];
+      }
+    }
+    // ré-index le tablau
+    filtreLecture = filtreLecture.filter(function(val){return val});
+  }
 
-  } 
 
-  var data = { 
-    "lectures" : filtreLecture
-  };
+  //filtre STOCK
+  if (valeurStock != "all"){
+    for (let i = 0; i < filtreLecture.length; i++) {
+      if (filtreLecture[i]["stock"] != valeurStock){
+        delete filtreLecture[i];
+      }
+    }
+    // ré-index le tablau
+    filtreLecture = filtreLecture.filter(function(val){return val});
+  }
 
-  var template = Handlebars.compile(document.querySelector('#handlebars-template').innerHTML);
-  var filled = template(data);
-  document.querySelector('#handlebars-output').innerHTML = filled;
+
+  // Ordre par note
+  ordreParNote = [];
+  if (ordre) {
+    var noteMax = 0;
+    for (var i = 0; i < filtreLecture.length; i++) {
+      if (filtreLecture[i].note > noteMax) {
+        noteMax = filtreLecture[i].note;
+      }
+    }
+    for (let j = noteMax; j >= 0; j--) {
+      for (let i = 0; i < filtreLecture.length; i++) {
+        if ( filtreLecture[i].note == j ) {
+          ordreParNote.push(filtreLecture[i])
+        }
+      }
+    }
+    filtreLecture = ordreParNote
+  }
+
+
+  //envois des données
+  update(filtreLecture);
 
 }
 
 
 
 
-
-function trieParNote() {
-
-  window.trieLecture = [];
-
-  var noteMax = 0;
-  for (var i = 0; i < window.allLectures.length; i++) {
-    if (window.allLectures[i].note > noteMax) {
-      noteMax = window.allLectures[i].note;
-    }
-  }
-
-  for (let j = noteMax; j >= 0; j--) {
-    for (let i = 0; i < window.allLectures.length; i++) {
-      if ( window.allLectures[i].note == j ) {
-        window.trieLecture.push(window.allLectures[i])
-      }
-    }
-  }
-
+function update(dataUpdate) {
   var data = { 
-    "lectures" : trieLecture
+    "lectures" : dataUpdate
   };
 
   var template = Handlebars.compile(document.querySelector('#handlebars-template').innerHTML);
   var filled = template(data);
   document.querySelector('#handlebars-output').innerHTML = filled;
-
 }

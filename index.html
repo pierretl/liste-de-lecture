@@ -43,6 +43,7 @@
                 <li>Suppression de list.js qui ne fonctionne pas dans ce contexte, ajout de bouton de filtre par statut</li>
                 <li>Ajout d'un loader pendant le chargement des données</li>
                 <li>Ajout de quelques fitres et trie simple</li>
+                <li>Système de filtre multiple</li>
             </ol>
             <script id="handlebars-template" type="text/x-handlebars-template">
                 {{#each lectures}}
@@ -81,70 +82,62 @@
                             </li>
                         </ul>
                     </li>
+                {{else}}
+                    Pas de résultat
                 {{/each}}
             </script>
             <hr>
-            <h2>Tous</h2>
-            <ul class="d-flex">
-                <li>
-                    <button class="tg1-1 a" onclick="filtrePar()">Tous / réinitialisé</button>
-                </li>
-                <li>
-                    <ul>
-                        <li>
-                            <button class="tg1-1 a" onclick="trieParNote()">Trie par préférence</button>
-                        </li>
-                        <li>
-                            <button class="tg1-1 a" onclick="filtrePar()">Trie par abécédaire</button>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <h2>Filtre</h2>
-            <ul class="d-flex">
-                <li>
-                    <h3>Statut :</h3>
-                    <ul>
-                        <li>
-                            <button class="tg1-1 a" onclick="filtrePar('statut','Abandonné')">Abandonné</button>
-                        </li>
-                        <li>
-                            <button class="tg1-1 a" onclick="filtrePar('statut','Terminé')">Terminé</button>
-                        </li>
-                        <li>
-                            <button class="tg1-1 a" onclick="filtrePar('statut','En cours')">En cours</button>
-                        </li>
-                        <li>
-                            
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <h3>Type :</h3>
-                    <ul>
-                        <li>
-                            <button class="tg1-1 a" onclick="filtrePar('type','Manga')">Manga</button>
-                        </li>
-                        <li>
-                            <button class="tg1-1 a" onclick="filtrePar('type','Comics')">Comics</button>
-                        </li>
-                        <li>
-                            <button class="tg1-1 a" onclick="filtrePar('type','Roman')">Roman</button>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <h3>Stock :</h3>
-                    <ul>
-                        <li>
-                            <button class="tg1-1 a" onclick="filtrePar('stock','Possédé')">Possédé</button>
-                        </li>
-                        <li>
-                            <button class="tg1-1 a" onclick="filtrePar('stock','Vendu')">Vendu</button>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <form name="filtresForm">
+                <ul class="d-flex">
+                    <li>
+                        <strong>Statut</strong><br>
+                        <input type="radio" name="statut" id="allStatut" value="all" checked>
+                        <label for="allStatut">Tous</label>
+                        <br>
+                        <input type="radio" name="statut" id="abandonne" value="Abandonné">
+                        <label for="abandonne">Abandonné</label>
+                        <br>
+                        <input type="radio" name="statut" id="termine" value="Terminé">
+                        <label for="termine">Terminé</label>
+                        <br>
+                        <input type="radio" name="statut" id="encours" value="En cours">
+                        <label for="encours">En cours</label>
+                    </li>
+                    <li>
+                        <strong>Type</strong><br>
+                        <input type="radio" name="type" id="allType" value="all" checked>
+                        <label for="allType">Tous</label>
+                        <br>
+                        <input type="radio" name="type" id="manga" value="Manga">
+                        <label for="manga">Manga</label>
+                        <br>
+                        <input type="radio" name="type" id="comics" value="Comics">
+                        <label for="comics">Comics</label>
+                        <br>
+                        <input type="radio" name="type" id="roman" value="Roman">
+                        <label for="roman">Roman</label>
+                    </li>
+                    <li>
+                        <strong>Stock</strong><br>
+                        <input type="radio" name="stock" id="allStock" value="all" checked>
+                        <label for="allStock">Tous</label>
+                        <br>
+                        <input type="radio" name="stock" id="possede" value="Possédé">
+                        <label for="possede">Possédé</label>
+                        <br>
+                        <input type="radio" name="stock" id="vendu" value="Vendu">
+                        <label for="vendu">Vendu</label>
+                    </li>
+                    <li>
+                        <strong>Ordre</strong><br>
+                        <button class="tg1-1 a" type="button" onclick="controle(filtresForm)">Alphabétique</button>
+                        <br>
+                        <button class="tg1-1 a" type="button" onclick="controle(filtresForm, 'note')">Préférence</button>
+                    </li>
+                </ul>
+                
+            </form>
+            <hr>
             <br>
             <ul id="handlebars-output">
                 <li class="js--loader svg:loader"></li>
