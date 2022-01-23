@@ -4,9 +4,9 @@ const positionMenuBtn = document.querySelector('.js_positionMenu-btn');
 const positionMenuBtnGauche = document.querySelector('.js_positionMenu-gauche');
 const positionMenuBtnDroite = document.querySelector('.js_positionMenu-droite');
 
-function choixPositionMenu() {
+function choixPositionMenu(menuParDefaut) {
     positionMenuBtn.classList.add(':click');
-    displayMenu();
+    menu.classList.remove(':visible');
     positionMenuBtnGauche.classList.remove('hide');
     positionMenuBtnDroite.classList.remove('hide');
     app.classList.add(classOverlay);
@@ -14,7 +14,7 @@ function choixPositionMenu() {
 
 function changePosition() {
     positionMenuBtn.classList.remove(':click');
-    displayMenu();
+    menu.classList.add(':visible');
     positionMenuBtnGauche.classList.add('hide');
     positionMenuBtnDroite.classList.add('hide');
     app.classList.remove(classOverlay);
@@ -26,14 +26,12 @@ function changePosition() {
     document.documentElement.dataset.position = localStorage.getItem('positionMenu');
 }
 
-if (currentPosition){
-    document.documentElement.dataset.position = currentPosition;
-    positionMenuBtnGauche.classList.add('hide');
-    positionMenuBtnDroite.classList.add('hide');
+if ( localStorage.getItem('positionMenu') ) {
+    document.documentElement.dataset.position = localStorage.getItem('positionMenu');
 } else {
-    positionMenuBtnGauche.classList.remove('hide');
-    positionMenuBtnDroite.classList.remove('hide');
-    app.classList.add(classOverlay);
+    localStorage.setItem('positionMenu', 'gauche');
+    choixPositionMenu();
+    menu.classList.remove(':visible');
 }
 
 positionMenuBtn.addEventListener('click', choixPositionMenu, false);
