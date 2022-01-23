@@ -11,8 +11,8 @@
     </head>
     <body>
         <div class="app js_app">
-            <button class="app_haut text-center js_menu-btnDisplay hover">
-                <svg class="svg:app" aria-hidden="true" focusable="false">
+            <button class="app_haut js_menu-btnDisplay hover :g1">
+                <svg aria-hidden="true" focusable="false">
                     <use xlink:href="#logo">
                         <title>Options d'affichage</title>
                     </use>
@@ -41,6 +41,7 @@
                     <li>Ajout de quelques fitres et trie simple</li>
                     <li>Système de filtre multiple</li>
                     <li>Refonte de la structure de la page, du js et nettoyage des classes pour un redesign futur</li>
+                    <li>Mise en page de l'interface du choix de position du menu</li>
                 </ol>
                 <script id="handlebars-template" type="text/x-handlebars-template">
                     {{#each lectures}}
@@ -141,58 +142,68 @@
                 </ul>
             </main>
             <nav class="app_menu js_menu">
-                <ul class="">
+                <ul>
                     <li>
-                        <button class="js_menu-btn js_suivi-btnDisplay hover">
-                            <svg class="svg:g2" aria-hidden="true" focusable="false">
+                        <button class="js_menu-btn js_suivi-btnDisplay hover :g2">
+                            <svg aria-hidden="true" focusable="false">
                                 <use xlink:href="#merge"></use>
                             </svg>
-                            <span class="">Suivi de projet</span>
+                            <span>Suivi de projet</span>
                         </button>
                     </li>
                     <li>
                         <input type="checkbox" id="switch-theme" class="hide-checkbox js_switch">
-                        <label for="switch-theme" class="js_menu-btn hover">
+                        <label for="switch-theme" class="js_menu-btn hover :g2">
                             <span class="js_switch-clair">
-                                <svg class="svg:g2" aria-hidden="true" focusable="false">
+                                <svg aria-hidden="true" focusable="false">
                                     <use xlink:href="#modeSombre"></use>
                                 </svg>
-                                <span class="">Changer pour un thème clair</span>
+                                <span>Changer pour un thème clair</span>
                             </span>
                             <span class="js_switch-sombre hide">
-                                <svg class="svg:g2" aria-hidden="true" focusable="false">
+                                <svg aria-hidden="true" focusable="false">
                                     <use xlink:href="#modeClair"></use>
                                 </svg>
-                                <span class="">Changer pour un thème sombre</span>
+                                <span>Changer pour un thème sombre</span>
                             </span>
                         </label>
                     </li>
                     <li>
-                        <button class="js_menu-btn js_positionMenu-btn hover">
-                            <svg class="svg:g2" aria-hidden="true" focusable="false">
-                                <use xlink:href="#main"></use>
+                        <button class="js_menu-btn js_positionMenu-btn hover :g2">
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="#mobile"></use>
                             </svg>
-                            <span class="">Changer la position du menu</span>
+                            <span>Changer la position du menu</span>
                         </button>
                     </li>
                     <li>
-                        <button class="js_menu-btn js_menu-btnDisplay hover">
-                            <svg class="svg:g2" aria-hidden="true" focusable="false">
+                        <button class="js_menu-btn js_menu-btnDisplay hover :g2">
+                            <svg aria-hidden="true" focusable="false">
                                 <use xlink:href="#fermer"></use>
                             </svg>
-                            <span class="">Fermer le menu</span>
+                            <span>Fermer le menu</span>
                         </button>
                     </li>
                 </ul>
             </nav>
-            <button class="app_gauche hide js_positionMenu-gauche hover">
-                gauche
+            <button class="app_gauche d-flex hide js_positionMenu-gauche hover :g2">
+                <div class="position-menu">
+                    <svg aria-hidden="true" focusable="false">
+                        <use xlink:href="#mobile"></use>
+                    </svg>
+                    <p>Menu à gauche</p>
+                </div>
             </button>
-            <button class="app_droite hide js_positionMenu-droite hover">
-                droite
+            <button class="app_droite d-flex hide js_positionMenu-droite hover :g2">
+                <div class="position-menu :droite">
+                    <svg class=":inverse" aria-hidden="true" focusable="false">
+                        <use xlink:href="#mobile"></use>
+                    </svg>
+                    <p>Menu à droite</p>
+                </div>
             </button>
-            <button class="app_bas text-center js_menu-btnDisplay hover">
-                <svg class="svg:app" aria-hidden="true" focusable="false">
+            <button class="app_bas js_menu-btnDisplay hover :g1">
+                <svg aria-hidden="true" focusable="false">
                     <use xlink:href="#parametre"></use>
                 </svg>
                 <span class="sr-only">Options d'affichage</span>
@@ -215,11 +226,13 @@
             <symbol id="modeSombre" viewBox="0 0 30 30" aria-hidden="true">
                 <path d="M15,0.1C6.8,0.1,0.1,6.8,0.1,15c0,8.2,6.7,14.9,14.9,14.9  c8.2,0,14.9-6.7,14.9-14.9C29.9,6.8,23.2,0.1,15,0.1z M15,26.9C8.4,26.9,3.1,21.6,3.1,15C3.1,8.4,8.4,3.1,15,3.1  c6.6,0,11.9,5.3,11.9,11.9C26.9,21.6,21.6,26.9,15,26.9z M16,6.1c4.5,2.7,6.4,12.9,0,17.9c3.2,0,7.9-4,7.9-8.9  C23.9,10.1,19.9,6.1,16,6.1z"/>
             </symbol>
-            <symbol id="main" viewBox="0 0 448 512" aria-hidden="true">
-                <path d="M369.4 119.1V96.3c0-42.8-42.8-72.8-82.3-56.5-19.8-54.2-94.4-52.2-112.5.8-38.4-15.8-81.8 12.8-81.8 55.9v145.7c-20.3-13.7-47.6-13.9-68.4 1.5-26.6 19.6-32.4 57.1-13.1 83.9l125 174.4c4.5 6.3 11.8 10 19.5 10H388c11.2 0 20.9-7.7 23.4-18.6l31.4-135.6c3.4-14.8 5.2-30 5.2-45.3V176.2c0-41.5-40.6-70.1-78.6-57.1zM416 312.5c0 12.8-1.5 25.6-4.4 38l-30 129.4H159.9l-122.6-171c-9-12.6-6.3-30.4 6.1-39.5 12.3-9.1 29.6-6.4 38.6 6.2l28.3 39.4c4.5 6.3 14.5 3.1 14.5-4.7V96.5c0-38 55.4-36.9 55.4.7V256c0 4.4 3.6 8 8 8h7.1c4.4 0 8-3.6 8-8V60.2c0-38 55.4-36.9 55.4.7v195c0 4.4 3.6 8 8 8h7.1c4.4 0 8-3.6 8-8V95.6c0-38 55.4-36.9 55.4.7V256c0 4.4 3.6 8 8 8h7.1c4.4 0 8-3.6 8-8v-79c0-37.6 55.4-38.8 55.4-.7v136.2z"></path>
-            </symbol>
             <symbol id="merge" viewBox="0 0 384 512" aria-hidden="true">
                 <path d="M304 192c-41.7 0-76 32-79.7 72.8-25.2-1.3-61.6-7.9-88.8-31.7-20.3-17.8-32.8-43-37.5-75.1 35.5-8.2 62-40 62-77.9 0-44.2-35.8-80-80-80S0 35.8 0 80c0 38.7 27.5 71 64 78.4v195.2C27.5 361 0 393.3 0 432c0 44.2 35.8 80 80 80s80-35.8 80-80c0-38.7-27.5-71-64-78.4V237.4c5.5 7.2 11.7 13.9 18.6 19.9C151 289 197.9 296.1 228 297c10.5 31.9 40.5 55 76 55 44.2 0 80-35.8 80-80s-35.8-80-80-80zM32 80c0-26.5 21.5-48 48-48s48 21.5 48 48-21.5 48-48 48-48-21.5-48-48zm96 352c0 26.5-21.5 48-48 48s-48-21.5-48-48 21.5-48 48-48 48 21.5 48 48zm176-112c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48z"></path>
+            </symbol>
+            <symbol id="mobile" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.2,0H6.8C5.5,0,4.5,1,4.5,2.2v19.5c0,1.2,1,2.2,2.2,2.2h10.5c1.2,0,2.2-1,2.2-2.2V2.2C19.5,1,18.5,0,17.2,0z M18,21.8
+		c0,0.4-0.3,0.8-0.8,0.8H6.8c-0.4,0-0.8-0.3-0.8-0.8V2.2c0-0.4,0.3-0.8,0.8-0.8h10.5c0.4,0,0.8,0.3,0.8,0.8V21.8z"/>
+                <path d="M7.5,20.2V3.7C7.5,3.3,7.8,3,8.2,3h0C8.7,3,9,3.3,9,3.7v16.5C9,20.7,8.7,21,8.3,21h0C7.8,21,7.5,20.7,7.5,20.2z"/>
             </symbol>
         </svg>
 

@@ -1,6 +1,5 @@
 body {
     position: relative;
-    background: var(--gamme1__fond);
 }
 
 .app {
@@ -32,7 +31,7 @@ body {
     width: $app_btn-largeur-bordure;
     height: $app_bordure;
     margin: $app_btn-padding auto 0;
-    background-color: var(--gamme2__fond);
+    background-color: var(--gamme1__bordure);
 }
 
 .app_contenu {
@@ -95,5 +94,5 @@ body {
     width: $app_btn-largeur-bordure;
     height: $app_bordure;
     margin: 0 auto $app_btn-padding;
-    background-color: var(--gamme2__fond);
+    background-color: var(--gamme1__bordure);
 }

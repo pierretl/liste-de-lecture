@@ -1,11 +1,11 @@
-.svg\:app {
-    fill: var(--gamme1__texte3);
+svg {
     width: $taille-picto;
     height: $taille-picto;
 }
 
-.svg\:g2 {
-    fill: var(--gamme2__btn);
-    width: $taille-picto;
-    height: $taille-picto;
+
+
+
+.\:inverse {
+    transform: scaleX(-1);
 }

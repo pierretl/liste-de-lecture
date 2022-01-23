@@ -1,0 +1,37 @@
+.hover:hover {
+    cursor: pointer;//
+}
+
+
+
+
+
+
+.hover.\:g1 {
+    color: var(--gamme1__interaction);
+    fill: var(--gamme1__interaction);
+}
+
+.hover.\:g1:hover {
+    color: var(--gamme1__hover);
+    fill: var(--gamme1__hover);
+}
+
+.hover.\:g1:hover .position-menu {
+    border-color: var(--gamme1__hover);
+}
+
+
+
+
+
+
+.hover.\:g2 {
+    color: var(--gamme2__interaction);
+    fill: var(--gamme2__interaction);
+}
+
+.hover.\:g2:hover {
+    color: var(--gamme2__hover);
+    fill: var(--gamme2__hover);
+}
