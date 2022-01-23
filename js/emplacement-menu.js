@@ -4,13 +4,12 @@ const positionMenuBtn = document.querySelector('.js_positionMenu-btn');
 const positionMenuBtnGauche = document.querySelector('.js_positionMenu-gauche');
 const positionMenuBtnDroite = document.querySelector('.js_positionMenu-droite');
 
-console.log(currentPosition);
-
 function choixPositionMenu() {
     positionMenuBtn.classList.add(':click');
     displayMenu();
     positionMenuBtnGauche.classList.remove('hide');
     positionMenuBtnDroite.classList.remove('hide');
+    app.classList.add(classOverlay);
 }
 
 function changePosition(e) {
