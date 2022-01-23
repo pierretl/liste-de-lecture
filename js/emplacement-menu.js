@@ -12,13 +12,13 @@ function choixPositionMenu() {
     app.classList.add(classOverlay);
 }
 
-function changePosition(e) {
+function changePosition() {
     positionMenuBtn.classList.remove(':click');
     displayMenu();
     positionMenuBtnGauche.classList.add('hide');
     positionMenuBtnDroite.classList.add('hide');
     app.classList.remove(classOverlay);
-    if (e.target.classList.contains('js_positionMenu-gauche')){
+    if (this.classList.contains('js_positionMenu-gauche')){
         localStorage.setItem('positionMenu', 'gauche');
     } else {
         localStorage.setItem('positionMenu', 'droite');
