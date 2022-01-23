@@ -1,19 +1,11 @@
-.svg\:btn {
+.svg\:app {
     fill: var(--gamme1__texte3);
     width: $taille-picto;
     height: $taille-picto;
 }
 
-
-
-
-
-.svg\:loader {
-    width: 100px;
-    margin: 0 auto;
-}
-
-.svg\:loader path {
-    stroke: var(--gamme1__texte1);
-    fill: var(--gamme1__texte1);
+.svg\:g2 {
+    fill: var(--gamme2__btn);
+    width: $taille-picto;
+    height: $taille-picto;
 }

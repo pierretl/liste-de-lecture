@@ -1,6 +1,6 @@
-const toggleSwitch = document.querySelector(".js--switch");
-const labelClair = document.querySelector(".js--switch-clair");
-const labelSombre = document.querySelector(".js--switch-sombre");
+const toggleSwitch = document.querySelector(".js_switch");
+const labelClair = document.querySelector(".js_switch-clair");
+const labelSombre = document.querySelector(".js_switch-sombre");
 const currentMode = localStorage.getItem('mode');
 
 if (currentMode){

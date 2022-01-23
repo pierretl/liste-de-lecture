@@ -1,14 +1,11 @@
-const btnAfficheSuivi = document.querySelectorAll(".js--btn-suivi");
-const zoneSuivi = document.querySelector(".js--suivi");
+const suivi = document.querySelector(".js_suivi");
+const suiviBtn = document.querySelector(".js_suivi-btnDisplay");
 
-function afficheLeSuivi(e) {
-    if (zoneSuivi.classList.contains('hide')){
-        zoneSuivi.classList.remove('hide');
+suiviBtn.addEventListener('click', function () {
+    if (suivi.classList.contains('hide')){
+        suivi.classList.remove('hide');
+        displayMenu();
     } else {
-        zoneSuivi.classList.add('hide');
+        suivi.classList.add('hide');
     }
-}
-
-for (let index = 0; index < btnAfficheSuivi.length; index++) {
-    btnAfficheSuivi[index].addEventListener('click', afficheLeSuivi, false);
-}
+})

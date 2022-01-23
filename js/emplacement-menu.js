@@ -1,43 +1,42 @@
-const currentPosition = localStorage.getItem('positionMenu');
-const btnGauche = document.querySelector(".js--gauche");
-const btnDroite = document.querySelector(".js--droite");
-const btnPosition = document.querySelector(".js--btn-position");
-const zoneMain = document.querySelector(".js--main");
 const classOverlay = document.documentElement.dataset.classOverlay;
+const currentPosition = localStorage.getItem('positionMenu');
+const positionMenuBtn = document.querySelector('.js_positionMenu-btn');
+const positionMenuBtnGauche = document.querySelector('.js_positionMenu-gauche');
+const positionMenuBtnDroite = document.querySelector('.js_positionMenu-droite');
 
-if (currentPosition){
-    document.documentElement.dataset.position = currentPosition;
-    btnGauche.classList.add('hide');
-    btnDroite.classList.add('hide');
-} else {
-    btnGauche.classList.remove('hide');
-    btnDroite.classList.remove('hide');
-    zoneMain.classList.add(classOverlay);
+console.log(currentPosition);
+
+function choixPositionMenu() {
+    positionMenuBtn.classList.add(':click');
+    displayMenu();
+    positionMenuBtnGauche.classList.remove('hide');
+    positionMenuBtnDroite.classList.remove('hide');
 }
 
 function changePosition(e) {
-    if (e.target.classList.contains('js--gauche')){
+    positionMenuBtn.classList.remove(':click');
+    displayMenu();
+    positionMenuBtnGauche.classList.add('hide');
+    positionMenuBtnDroite.classList.add('hide');
+    app.classList.remove(classOverlay);
+    if (e.target.classList.contains('js_positionMenu-gauche')){
         localStorage.setItem('positionMenu', 'gauche');
     } else {
         localStorage.setItem('positionMenu', 'droite');
     }
     document.documentElement.dataset.position = localStorage.getItem('positionMenu');
-    btnGauche.classList.add('hide');
-    btnDroite.classList.add('hide');
-    zoneMain.classList.remove(classOverlay);
-    if (menu.classList.contains('js--reste-afficher')) {
-        menu.classList.remove('hide');
-    }
 }
 
-function choixPosition() {
-    btnGauche.classList.remove('hide');
-    btnDroite.classList.remove('hide');
-    zoneMain.classList.add(classOverlay);
-    menu.classList.add('hide');
-    menu.classList.add('js--reste-afficher');
+if (currentPosition){
+    document.documentElement.dataset.position = currentPosition;
+    positionMenuBtnGauche.classList.add('hide');
+    positionMenuBtnDroite.classList.add('hide');
+} else {
+    positionMenuBtnGauche.classList.remove('hide');
+    positionMenuBtnDroite.classList.remove('hide');
+    app.classList.add(classOverlay);
 }
 
-btnGauche.addEventListener('click', changePosition, false);
-btnDroite.addEventListener('click', changePosition, false);
-btnPosition.addEventListener('click', choixPosition, false);
+positionMenuBtn.addEventListener('click', choixPositionMenu, false);
+positionMenuBtnGauche.addEventListener('click', changePosition, false);
+positionMenuBtnDroite.addEventListener('click', changePosition, false);
