@@ -78,6 +78,9 @@ body {
 [data-position="gauche"] .app_menu.\:visible {
     margin-left: 0;
 }
+[data-position="gauche"] .gauche\:inverse{
+    transform: scaleX(-1);
+}
 .app_contenu > * {
     width: $app_btn-largeur-bordure;
     margin-right: auto;
