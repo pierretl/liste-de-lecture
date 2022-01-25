@@ -36,6 +36,10 @@ fetch(endpoint1)
   Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
   });
+
+  Handlebars.registerHelper('ifSuperieur', function(a, b, options) {
+    return (a > b) ? options.fn(this) : options.inverse(this);
+});
   
   update(formatted);
  

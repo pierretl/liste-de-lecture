@@ -58,7 +58,9 @@
                                     {{/ifEquals}}
                                     {{#ifEquals statut "En cours"}}
                                         {{#ifEquals stock "Vendu"}}
-                                            <span class="texte--g1-2">{{volume}} volume(s)</span>
+                                            <span class="texte--g1-2">
+                                                {{volume}} volume{{#ifSuperieur volume '1'}}s{{/ifSuperieur}}
+                                            </span>
                                         {{else}}
                                             <strong class="texte--g3-1 p-s">{{volume}} / ?</strong>
                                         {{/ifEquals}}
