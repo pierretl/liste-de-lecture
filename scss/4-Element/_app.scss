@@ -21,8 +21,6 @@ body {
 .app_haut {
     @include z-index(app_haut);
     padding-top: $app_btn-padding;
-    padding-right: $app_btn-padding;
-    padding-left: $app_btn-padding;
     box-shadow: 0px $app_btn-padding $app_btn-padding 0px var(--gamme1__fond); 
 }
 .app_haut:after {
@@ -80,12 +78,15 @@ body {
 [data-position="gauche"] .app_menu.\:visible {
     margin-left: 0;
 }
+.app_contenu > * {
+    width: $app_btn-largeur-bordure;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 .app_bas {
     @include z-index(app_bas);
-    padding-right: $app_btn-padding;
     padding-bottom: $app_btn-padding;
-    padding-left: $app_btn-padding;
     box-shadow: 0px -$app_btn-padding $app_btn-padding 0px var(--gamme1__fond); 
 }
 .app_bas:before {
