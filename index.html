@@ -59,8 +59,8 @@
                         <p class="texte--l">Il n'y a pas de résultat avec ces critères</p>
                     {{/each}}
                 </script>
-                <hr>
-                <form name="filtresForm">
+                <form class="js_filtre hide" name="filtresForm">
+                    <hr>
                     <ul class="d-flex">
                         <li>
                             <strong>Statut</strong><br>
@@ -103,14 +103,13 @@
                         </li>
                         <li>
                             <strong>Ordre</strong><br>
-                            <button class="" type="button" onclick="controle(filtresForm)">Alphabétique</button>
+                            <button class="hover :g2" type="button" onclick="controle(filtresForm)">Alphabétique</button>
                             <br>
-                            <button class="" type="button" onclick="controle(filtresForm, 'note')">Préférence</button>
+                            <button class="hover :g2" type="button" onclick="controle(filtresForm, 'note')">Préférence</button>
                         </li>
                     </ul>
-                    
+                    <hr>
                 </form>
-                <hr>
                 <br>
                 <ul id="handlebars-output">
                     <li class="js--loader svg:loader"></li>
@@ -125,6 +124,14 @@
                             </svg>
                             <span>Sources du projet</span>
                         </a>
+                    </li>
+                    <li>
+                        <button class="js_menu-btn js_filtre-btnDisplay hover :g2">
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="#reglage"></use>
+                            </svg>
+                            <span>Filtrer la liste</span>
+                        </button>
                     </li>
                     <li>
                         <input type="checkbox" id="switch-theme" class="hide-checkbox js_switch">
@@ -153,6 +160,7 @@
                             </span>
                         </button>
                     </li>
+                    <!--
                     <li>
                         <button class="hover :g2">
                             <svg class="gauche:inverse" aria-hidden="true" focusable="false">
@@ -161,6 +169,7 @@
                             <span>Agrandir le menu</span>
                         </button>
                     </li>
+                    -->
                     <li>
                         <button class="js_menu-btn js_menu-btnDisplay hover :g2">
                             <svg aria-hidden="true" focusable="false">
@@ -221,6 +230,9 @@
             </symbol>
             <symbol id="fleche" viewBox="0 0 448 512" aria-hidden="true">
                 <path d="M216 412.5l-148.5-148c-4.7-4.7-4.7-12.3 0-17L216 99.5c4.7-4.7 12.3-4.7 17 0l7.1 7.1c4.7 4.7 4.7 12.3 0 17L124.1 239H436c6.6 0 12 5.4 12 12v10c0 6.6-5.4 12-12 12H124.1L240 388.4c4.7 4.7 4.7 12.3 0 17l-7.1 7.1c-4.6 4.7-12.2 4.7-16.9 0zM12 448h8c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12h-8C5.4 64 0 69.4 0 76v360c0 6.6 5.4 12 12 12z"></path>
+            </symbol>
+            <symbol id="reglage" viewBox="0 0 512 512" aria-hidden="true">
+                <path d="M496 72H288V48c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v24H16C7.2 72 0 79.2 0 88v16c0 8.8 7.2 16 16 16h208v24c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-24h208c8.8 0 16-7.2 16-16V88c0-8.8-7.2-16-16-16zm0 320H160v-24c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v24H16c-8.8 0-16 7.2-16 16v16c0 8.8 7.2 16 16 16h80v24c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-24h336c8.8 0 16-7.2 16-16v-16c0-8.8-7.2-16-16-16zm0-160h-80v-24c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v24H16c-8.8 0-16 7.2-16 16v16c0 8.8 7.2 16 16 16h336v24c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-24h80c8.8 0 16-7.2 16-16v-16c0-8.8-7.2-16-16-16z"></path>
             </symbol>
         </svg>
 
