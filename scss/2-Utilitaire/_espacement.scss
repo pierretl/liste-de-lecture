@@ -1,0 +1,16 @@
+.mx-m {
+    margin-right: $espace-m;
+    margin-left: $espace-m;
+}
+
+.mt-s {
+    margin-top: $espace-xs;
+}
+
+.mb-l {
+    margin-bottom: calc($espace-m * 3);
+}
+
+.p-s {
+    padding: $espace-xs;
+}

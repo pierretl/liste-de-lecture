@@ -1,0 +1,22 @@
+.align-right {
+    text-align: right;
+}
+
+.texte--l {
+    font-size: 1.3rem;
+}
+.texte--s {
+    font-size: .8rem;
+}
+
+.texte--g1-2 {
+    color: var(--gamme1__texte2);
+}
+.texte--g2-1 {
+    background-color: var(--gamme2__fond);
+    color: var(--gamme2__texte1);
+}
+.texte--g3-1 {
+    background-color: var(--gamme3__fond);
+    color: var(--gamme3__texte1);
+}

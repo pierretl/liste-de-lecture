@@ -36,8 +36,12 @@ $clair6: #C54906;
     --gamme1__hover: #{$sombre6};
 
     --gamme2__fond: #{$sombre2};
+    --gamme1__texte1: #{$sombre3};
     --gamme2__interaction: #{$sombre4};
     --gamme2__hover: #{$sombre3};
+    
+    --gamme3__fond: #{$sombre5};
+    --gamme3__texte1: #{$sombre1};
 }
   
   
@@ -54,6 +58,10 @@ $clair6: #C54906;
     --gamme1__hover: #{$clair6};
 
     --gamme2__fond: #{$clair2};
+    --gamme2__texte1: #{$clair3};
     --gamme2__interaction: #{$clair4};
     --gamme2__hover: #{$clair3};
+    
+    --gamme3__fond: #{$clair5};
+    --gamme3__texte1: #{$clair2};
 }

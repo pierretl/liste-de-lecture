@@ -42,51 +42,48 @@
                     <li>Système de filtre multiple</li>
                     <li>Refonte de la structure de la page, du js et nettoyage des classes pour un redesign futur</li>
                     <li>Mise en page de l'interface du choix de position du menu</li>
+                    <li>Mise en forme de la liste</li>
                 </ol>
                 <script id="handlebars-template" type="text/x-handlebars-template">
                     {{#each lectures}}
-                        <li>
-                            <ul>
-                                <li>
-                                    <strong class="list_stock" data-stock="{{stock}}">
-                                        {{#if article}}<span class="list_info">{{article}}</span>{{/if}}<!--
-                                        --><span class="list_titre">{{titre}}</span>
-                                    </strong>
-                                </li>
-                                <li>
-                                    Note : <strong class="list_note">{{note}}</strong>/10
-                                </li>
-                                {{#if info}}
-                                    <li>
-                                        <span class="list_info">{{info}}</span>
-                                    </li>
-                                {{/if}}
-                                <li class="list_statut" data-statut="{{statut}}">
+                        <li class="mx-m mb-l">
+                            <div class="d-flex">
+                                <div>
+                                    <p class="texte--l">{{#if article}}{{article}}{{/if}}{{titre}}</p>
+                                    <p class="mt-s">{{note}} / 10</p>
+                                </div>
+                                <div class="align-right">
                                     {{#ifEquals statut "Terminé"}}
-                                        <small>{{type}} : Terminé</small>
+                                        <span class="texte--g2-1 p-s">Série en <strong>{{volume}}</strong> volumes</span>
                                     {{/ifEquals}}
                                     {{#ifEquals statut "En cours"}}
-                                        <small>{{type}} : En cours</small>
+                                        {{#ifEquals stock "Vendu"}}
+                                            <span class="texte--g1-2">{{volume}} volume(s)</span>
+                                        {{else}}
+                                            <strong class="texte--g3-1 p-s">{{volume}} / ?</strong>
+                                        {{/ifEquals}}
                                     {{/ifEquals}}
                                     {{#ifEquals statut "Abandonné"}}
-                                        <small>{{type}} : Abandonné</small>
+                                        <span class="texte--g1-2">{{volume}} / ?</span>
                                     {{/ifEquals}}
-                                </li>
-                                <li>
-                                    Volume : <strong>{{volume}}</strong>
-                                    <br>
-                                    <small>({{stock}})</small>
-                                    <hr>
-                                </li>
-                            </ul>
+                                    {{#ifEquals stock "Vendu"}}
+                                        <p class="texte--s texte--g1-2 mt-s">Vendu</p>
+                                    {{/ifEquals}}
+                                </div>
+                            </div>
+                            {{#if info}}
+                                <p class="texte--g1-2 mt-s">
+                                    {{info}}
+                                </p>
+                            {{/if}}
                         </li>
                     {{else}}
-                        Pas de résultat
+                        <p class="texte--l">Il n'y a pas de résultat avec ces critères</p>
                     {{/each}}
                 </script>
                 <hr>
                 <form name="filtresForm">
-                    <ul class="d-flex">
+                    <ul class="d-flex mx-m">
                         <li>
                             <strong>Statut</strong><br>
                             <input type="radio" name="statut" id="allStatut" value="all" checked>
