@@ -1,0 +1,71 @@
+// taille et disposition du menu selon qu'il soit afficher et/ou positionné (droite ou gauche)
+[data-position="droite"] .app_menu {
+    left:100%;
+}
+
+[data-position="droite"] .app_menu.\:visible,
+[data-position="gauche"] .app_menu {
+    margin-left: -($app_menu-largeur);
+}
+
+[data-position="droite"] .app_menu.\:visible.\:large,
+[data-position="gauche"] .app_menu.\:large {
+    margin-left: -($app_menu-largeur-grand);
+}
+
+[data-position="gauche"] .app_menu.\:visible {
+    margin-left: 0;
+}
+
+
+
+// Sens de l'icone (dépend de la position du menu et/ou si il est en mode 'large'
+[data-position="gauche"] .gauche\:inverse {
+    transform: scaleX(-1);
+}
+[data-position="droite"] .\:actif .gauche\:inverse {
+    transform: scaleX(-1);
+}
+[data-position="gauche"] .\:actif .gauche\:inverse {
+    transform: scaleX(1);
+}
+
+
+
+// Disposition du menu
+.app_menu ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    margin: 0 $espace-m;
+}
+
+.app_menu li {
+    margin-top: $espace-m;
+    margin-bottom: $espace-m;
+}
+
+.menu-btn {
+    display: flex;
+    text-align: left;
+}
+.menu-btn svg {
+    width: 24px;
+    flex-shrink: 0;
+}
+.menu-btn .menu-label {
+    margin-left: $espace-m;
+}
+
+// En attendant de faire un affichage au survol, accessible tout de même !
+.app_menu:not(.\:large) .menu-btn .menu-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}

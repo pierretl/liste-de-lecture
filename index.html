@@ -118,67 +118,67 @@
                     </li>
                 </ul>
             </main>
-            <nav class="app_menu js_menu">
+            <nav class="app_menu js_menu :visible js_largeurMenu-zone">
                 <ul>
                     <li>
-                        <a class="js_menu-btn hover :g2" href="https://github.com/pierretl/liste-de-lecture" target="_blank" rel="external">
+                        <a class="js_menu-btn menu-btn hover :g2" href="https://github.com/pierretl/liste-de-lecture" target="_blank" rel="external">
                             <svg aria-hidden="true" focusable="false">
                                 <use xlink:href="#github"></use>
                             </svg>
-                            <span>Sources du projet</span>
+                            <span class="menu-label">Sources du projet</span>
                         </a>
                     </li>
                     <li>
-                        <button class="js_menu-btn js_filtre-btnDisplay hover :g2">
+                        <button class="js_menu-btn js_filtre-btnDisplay menu-btn hover :g2">
                             <svg aria-hidden="true" focusable="false">
                                 <use xlink:href="#reglage"></use>
                             </svg>
-                            <span>Filtrer la liste</span>
+                            <span class="menu-label">Filtrer la liste</span>
                         </button>
                     </li>
                     <li>
                         <input type="checkbox" id="switch-theme" class="hide-checkbox js_switch">
-                        <label for="switch-theme" class="js_menu-btn hover :g2">
-                            <span class="js_switch-clair">
-                                <svg aria-hidden="true" focusable="false">
-                                    <use xlink:href="#modeSombre"></use>
-                                </svg>
-                                <span>Changer pour un thème clair</span>
-                            </span>
-                            <span class="js_switch-sombre hide">
-                                <svg aria-hidden="true" focusable="false">
-                                    <use xlink:href="#modeClair"></use>
-                                </svg>
-                                <span>Changer pour un thème sombre</span>
-                            </span>
+                        <label for="switch-theme" class="js_menu-btn menu-btn hover :g2">
+                            <svg aria-hidden="true" focusable="false" class="js_switch-clair">
+                                <use xlink:href="#modeSombre"></use>
+                            </svg>
+                            <svg aria-hidden="true" focusable="false" class="js_switch-sombre">
+                                <use xlink:href="#modeClair"></use>
+                            </svg>
+                            <p class="menu-label">
+                                <span class="sr-only">Changer pour un </span>
+                                <span class="js_switch-clair">Thème clair</span>
+                                <span class="js_switch-sombre">Thème sombre</span>
+                            </p>
                         </label>
                     </li>
                     <li>
-                        <button class="js_menu-btn js_positionMenu-btn hover :g2">
+                        <button class="js_menu-btn js_positionMenu-btn menu-btn hover :g2">
                             <svg class="gauche:inverse" aria-hidden="true" focusable="false">
                                 <use xlink:href="#mobile"></use>
                             </svg>
-                            <span>
-                                Placer le menu à <span class="js_texte-gauche">gauche</span><span class="js_texte-droite">droite</span>
+                            <span class="menu-label">
+                                <span class="sr-only">Placer le </span>
+                                Menu à 
+                                <span class="js_texte-gauche">gauche</span>
+                                <span class="js_texte-droite">droite</span>
                             </span>
                         </button>
                     </li>
-                    <!--
                     <li>
-                        <button class="hover :g2">
+                        <button class="js_largeurMenu-btn menu-btn hover :g2">
                             <svg class="gauche:inverse" aria-hidden="true" focusable="false">
                                 <use xlink:href="#fleche"></use>
                             </svg>
-                            <span>Agrandir le menu</span>
+                            <span class="menu-label">Agrandir le menu</span>
                         </button>
                     </li>
-                    -->
                     <li>
-                        <button class="js_menu-btn js_menu-btnDisplay hover :g2">
+                        <button class="js_menu-btn js_menu-btnDisplay menu-btn hover :g2">
                             <svg aria-hidden="true" focusable="false">
                                 <use xlink:href="#fermer"></use>
                             </svg>
-                            <span>Fermer le menu</span>
+                            <span class="menu-label">Fermer le menu</span>
                         </button>
                     </li>
                 </ul>
@@ -188,7 +188,7 @@
                     <svg aria-hidden="true" focusable="false">
                         <use xlink:href="#mobile"></use>
                     </svg>
-                    <p>Menu à gauche</p>
+                    <p class="menu-label">Menu à gauche</p>
                 </div>
             </button>
             <button class="app_droite d-flex align-items:stretch hide js_positionMenu-droite hover :g2">
@@ -196,14 +196,15 @@
                     <svg class=":inverse" aria-hidden="true" focusable="false">
                         <use xlink:href="#mobile"></use>
                     </svg>
-                    <p>Menu à droite</p>
+                    <p class="menu-label">Menu à droite</p>
                 </div>
             </button>
             <button class="app_bas js_menu-btnDisplay hover :g1">
                 <svg aria-hidden="true" focusable="false">
                     <use xlink:href="#parametre"></use>
                 </svg>
-                <span class="sr-only">Options d'affichage</span>
+                <br>
+                <span class="menu-label">Options d'affichage</span>
             </button>
         </div>
 

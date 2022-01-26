@@ -42,7 +42,6 @@ if ( localStorage.getItem('positionMenu') ) {
     } else {
         texteGauche.classList.add('hide');
     }
-    console.log("local");
 } else {
     positionMenuBtnGauche.classList.remove('hide');
     positionMenuBtnDroite.classList.remove('hide');
