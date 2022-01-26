@@ -5,6 +5,16 @@ svg {
 
 
 
+.svg\:loader {
+    display: inline-block;
+    width: 30%;
+}
+.svg\:loader path {
+    stroke: var(--gamme1__texte2);
+    fill:   var(--gamme1__texte2);
+}
+
+
 
 .\:inverse {
     transform: scaleX(-1);
