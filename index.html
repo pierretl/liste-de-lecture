@@ -37,8 +37,8 @@
                         <li class="mb-l">
                             <div class="d-flex">
                                 <div>
-                                    <p class="texte--l">{{#if article}}{{article}}{{/if}}{{titre}}</p>
-                                    <p class="mt-s">{{note}} / 10</p>
+                                    <p class="texte--l{{#ifEquals statut 'Abandonné'}} texte--g1-2{{/ifEquals}}">{{#if article}}{{article}}{{/if}}{{titre}}</p>
+                                    <p class="{{#ifEquals statut 'Abandonné'}}texte--g1-2 {{/ifEquals}}mt-s">{{note}} / 10</p>
                                 </div>
                                 <div class="align-right">
                                     {{#ifEquals statut "Terminé"}}
@@ -59,6 +59,8 @@
                                     {{/ifEquals}}
                                     {{#ifEquals statut "Abandonné"}}
                                         <span class="texte--g1-2">{{volume}} / ?</span>
+                                        <br>
+                                        <span class="texte--s texte--g1-2 mt-s">Lecture abandonné</span>
                                     {{/ifEquals}}
                                     {{#ifEquals stock "Vendu"}}
                                         <p class="texte--s texte--g1-2 mt-s">Vendu</p>
