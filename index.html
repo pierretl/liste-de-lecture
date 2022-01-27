@@ -42,7 +42,11 @@
                                 </div>
                                 <div class="align-right">
                                     {{#ifEquals statut "Terminé"}}
-                                        <span class="texte--g2-1 p-s">Série en <strong>{{volume}}</strong> volumes</span>
+                                        {{#ifSuperieur volume '1'}}
+                                            <span class="texte--g2-1 p-s">Série en <strong>{{volume}}</strong> volumes</span>
+                                        {{else}}
+                                            <span class="texte--g2-1 p-s">One Shot</span>
+                                        {{/ifSuperieur}}
                                     {{/ifEquals}}
                                     {{#ifEquals statut "En cours"}}
                                         {{#ifEquals stock "Vendu"}}
