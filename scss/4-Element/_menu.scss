@@ -36,9 +36,11 @@
 .app_menu ul {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     height: 100%;
     margin: 0 $espace-m;
+}
+.app_menu ul.\:bas {
+    justify-content: flex-end;
 }
 
 .app_menu li {

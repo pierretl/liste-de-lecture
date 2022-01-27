@@ -23,7 +23,7 @@
     </head>
     <body>
         <div class="app js_app">
-            <button class="app_haut js_menu-btnDisplay hover :g1">
+            <button class="app_haut js_menu-btnDisplay hover :g1" data-position="haut">
                 <svg aria-hidden="true" focusable="false" class="svg:logo">
                     <use xlink:href="#logo">
                         <title>Options d'affichage</title>
@@ -131,7 +131,7 @@
                 </ul>
             </main>
             <nav class="app_menu js_menu js_largeurMenu-zone">
-                <ul>
+                <ul class="js_menu-positionY" data-position-bas=":bas">
                     <li>
                         <a class="js_menu-btn menu-btn hover :g2" href="https://github.com/pierretl/liste-de-lecture" target="_blank" rel="external">
                             <svg aria-hidden="true" focusable="false">
@@ -211,7 +211,7 @@
                     <p class="menu-label">Menu à droite</p>
                 </div>
             </button>
-            <button class="app_bas js_menu-btnDisplay hover :g1">
+            <button class="app_bas js_menu-btnDisplay hover :g1" data-position="bas">
                 <svg aria-hidden="true" focusable="false">
                     <use xlink:href="#parametre"></use>
                 </svg>

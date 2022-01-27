@@ -1,13 +1,24 @@
 const menuBtnDisplay = document.querySelectorAll('.js_menu-btnDisplay');
 const menu = document.querySelector('.js_menu');
+const menuPositionY = document.querySelector('.js_menu-positionY');
 const menuBtn = document.querySelectorAll('.js_menu-btn');
 const app = document.querySelector('.js_app');
 
 function displayMenu() {
     if (menu.classList.contains(':visible')) {
         menu.classList.remove(':visible');
+        positionMenuY(this);
     } else {
         menu.classList.add(':visible');
+        positionMenuY(this);
+    }
+}
+
+function positionMenuY(el){
+    if (el.dataset.position == 'bas') {
+        menuPositionY.classList.add(menuPositionY.dataset.positionBas);
+    } else {
+        menuPositionY.classList.remove(menuPositionY.dataset.positionBas);
     }
 }
 
