@@ -21,6 +21,12 @@ if (currentMode){
             labelSombre[j].classList.add('hide');
         }
     }
+} else {
+    document.documentElement.setAttribute('data-mode', 'dark');
+    localStorage.setItem('mode', 'dark');
+    for (let i = 0; i < labelClair.length; i++) {
+        labelClair[i].classList.add('hide');
+    }
 }
 
 function switchMode(e) {
