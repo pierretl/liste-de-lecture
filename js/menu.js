@@ -8,17 +8,29 @@ function displayMenu() {
     if (menu.classList.contains(':visible')) {
         menu.classList.remove(':visible');
         positionMenuY(this);
+        positionMenuX(this);
     } else {
         menu.classList.add(':visible');
         positionMenuY(this);
+        positionMenuX(this);
     }
 }
 
-function positionMenuY(el){
+function positionMenuY(el) {
     if (el.dataset.position == 'bas') {
         menuPositionY.classList.add(menuPositionY.dataset.positionBas);
     } else {
         menuPositionY.classList.remove(menuPositionY.dataset.positionBas);
+    }
+}
+
+function positionMenuX(el) {
+    var largeurEl = el.offsetWidth;
+    var positionCurseur = window.event.offsetX;
+    if ( positionCurseur <= (largeurEl / 2) ) {
+        document.documentElement.dataset.position = 'gauche';
+    } else {
+        document.documentElement.dataset.position = 'droite';
     }
 }
 

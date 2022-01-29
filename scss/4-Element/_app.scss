@@ -48,28 +48,6 @@ body {
 
 
 
-.app_gauche {
-    @include z-index(app_gauche);
-    position: absolute;
-    width: 50%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-}
-
-
-
-.app_droite {
-    @include z-index(app_droite);
-    position: absolute;
-    width: 50%;
-    top: 0;
-    bottom: 0;
-    right: 0;
-}
-
-
-
 .app_menu {
     @include z-index(app_menu);
     position: absolute;

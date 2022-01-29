@@ -19,19 +19,6 @@
 
 
 
-// Sens de l'icone (dépend de la position du menu et/ou si il est en mode 'large'
-[data-position="gauche"] .gauche\:inverse {
-    transform: scaleX(-1);
-}
-[data-position="droite"] .\:actif .gauche\:inverse {
-    transform: scaleX(-1);
-}
-[data-position="gauche"] .\:actif .gauche\:inverse {
-    transform: scaleX(1);
-}
-
-
-
 // Disposition du menu
 .app_menu ul {
     display: flex;
