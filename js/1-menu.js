@@ -38,6 +38,8 @@ for (let i = 0; i < menuBtnDisplay.length; i++) {
 
 
 // Ajoute un overlay au site au survol du menu
+// Désactiver tant que l'on n'affiche pas les intitulés au survol/touch lorsque que le menu est réduit
+/*
 for (let i = 0; i < menuBtn.length; i++) {
     if (Modernizr.touch) { 
         menuBtn[i].addEventListener('touchstart', overlayContentAdd, false);
@@ -47,3 +49,4 @@ for (let i = 0; i < menuBtn.length; i++) {
         menuBtn[i].addEventListener('mouseout', overlayContentRemove, false);
     }
 }
+*/
