@@ -1,12 +1,21 @@
 const btnLargeurMenu = document.querySelector('.js_largeurMenu-btn');
-const ZoneLargeurMenu = document.querySelector('.js_largeurMenu-zone');
+const currentLargeur = localStorage.getItem('largeurMenu');
+
+
+
+if (currentLargeur){
+    document.documentElement.dataset.menuLargeur = currentLargeur;
+} else {
+    document.documentElement.dataset.menuLargeur = 'small';
+    localStorage.setItem('largeurMenu', 'small');
+}
 
 btnLargeurMenu.addEventListener('click', function name() {
-    if (btnLargeurMenu.classList.contains(':actif')) {
-        btnLargeurMenu.classList.remove(':actif');
-        ZoneLargeurMenu.classList.remove(':large');
+    if (document.documentElement.dataset.menuLargeur == 'small') {
+        document.documentElement.dataset.menuLargeur = 'large';
+        localStorage.setItem('largeurMenu', 'large');
     } else {
-        btnLargeurMenu.classList.add(':actif');
-        ZoneLargeurMenu.classList.add(':large');
+        document.documentElement.dataset.menuLargeur = 'small';
+        localStorage.setItem('largeurMenu', 'small');
     }
-})
+});

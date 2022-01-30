@@ -1,35 +1,50 @@
-// taille et disposition du menu selon qu'il soit afficher et/ou positionné (droite ou gauche)
-[data-position="droite"] .app_menu {
+//position horizontal initial - small
+[data-position-x="droite"] .app_menu {
     left:100%;
 }
-
-[data-position="droite"] .app_menu.\:visible,
-[data-position="gauche"] .app_menu {
-    margin-left: -($app_menu-largeur);
+[data-position-x="gauche"] .app_menu {
+    left: -($app_menu-largeur);
 }
 
-[data-position="droite"] .app_menu.\:visible.\:large,
-[data-position="gauche"] .app_menu.\:large {
+//position horizontal afficher - small
+[data-position-x="droite"] .app_menu.\:visible {
+    margin-left: -($app_menu-largeur);
+}
+[data-position-x="gauche"] .app_menu.\:visible {
+    margin-left: $app_menu-largeur;
+}
+
+//position horizontal initial - large
+[data-position-x="gauche"][data-menu-largeur="large"] .app_menu {
+    left: -($app_menu-largeur-grand);
+}
+
+//position horizontal afficher - large
+[data-position-x="gauche"][data-menu-largeur="large"] .app_menu.\:visible {
+    left: 0;
+    margin-left: 0;
+}
+[data-position-x="droite"][data-menu-largeur="large"] .app_menu.\:visible {
     margin-left: -($app_menu-largeur-grand);
 }
 
-[data-position="gauche"] .app_menu.\:visible {
-    margin-left: 0;
-}
 
 
-
-// Disposition du menu
+// Disposition du menu vertical
 .app_menu ul {
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     height: 100%;
     margin: 0 $espace-m;
 }
-.app_menu ul.\:bas {
-    justify-content: flex-end;
+[data-position-y="haut"] .app_menu ul {
+    flex-direction: column-reverse;
 }
 
+
+
+// Mise en forme
 .app_menu li {
     margin-top: $espace-m;
     margin-bottom: $espace-m;
@@ -43,12 +58,19 @@
     width: 24px;
     flex-shrink: 0;
 }
-.menu-btn .menu-label {
+[data-menu-largeur="large"] .menu-btn .menu-label {
     margin-left: $espace-m;
 }
 
-// En attendant de faire un affichage au survol, accessible tout de même !
-.app_menu:not(.\:large) .menu-btn .menu-label {
+
+
+// Texte à afficher
+[data-menu-largeur="large"] .menu-label.\:large,
+[data-menu-largeur="small"] .menu-label.\:large {
+    display: none;
+}
+// En attendant de faire un affichage au survol, le label reste accessible
+[data-menu-largeur="small"] .menu-label:not(.\:large) {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -57,4 +79,12 @@
     clip: rect(0,0,0,0);
     white-space: nowrap;
     border: 0;
+}
+
+
+
+// Sens du picto aggrandir/réduire le menu
+[data-position-x="gauche"][data-menu-largeur="small"] .menu-svg-sens,
+[data-position-x="droite"][data-menu-largeur="large"] .menu-svg-sens {
+    transform: scaleX(-1);
 }

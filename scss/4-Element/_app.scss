@@ -56,9 +56,9 @@ body {
     width: $app_menu-largeur;
     overflow-x: auto;
     background: var(--gamme2__fond);
-    transition: margin-left 125ms ease-in, width 125ms ease-in;
+    transition: margin-left 125ms ease-in, width 125ms ease-in, left 125ms ease-in;
 }
-.app_menu.\:large {
+[data-menu-largeur="large"] .app_menu {
     width: calc($app_menu-largeur-grand);
 }
 

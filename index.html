@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" data-class-overlay=":overlay" data-position="gauche">
+<html lang="fr" data-class-overlay=":overlay" data-position-x="gauche">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,15 +23,15 @@
     </head>
     <body>
         <div class="app js_app">
-            <button class="app_haut js_menu-btnDisplay hover :g1" data-position="haut">
+            <button class="app_haut js_menu-btnAffiche hover :g1" data-position-y="haut">
                 <svg aria-hidden="true" focusable="false" class="svg:logo">
                     <use xlink:href="#logo">
                         <title>Options d'affichage</title>
                     </use>
                 </svg>
-                <h1>Liste de lecture</h1>
+                <h1 class="menu-label">Liste de lecture</h1>
             </button>
-            <main class="app_contenu">
+            <main class="app_contenu js_contenu">
                 <script id="handlebars-template" type="text/x-handlebars-template">
                     {{#each lectures}}
                         <li class="mb-l">
@@ -136,8 +136,8 @@
                     </li>
                 </ul>
             </main>
-            <nav class="app_menu js_menu js_largeurMenu-zone">
-                <ul class="js_menu-positionY" data-position-bas=":bas">
+            <nav class="app_menu js_menu">
+                <ul>
                     <li>
                         <a class="js_menu-btn menu-btn hover :g2" href="https://github.com/pierretl/liste-de-lecture" target="_blank" rel="external">
                             <svg aria-hidden="true" focusable="false">
@@ -180,14 +180,15 @@
                     </li>
                     <li>
                         <button class="js_largeurMenu-btn menu-btn hover :g2">
-                            <svg class="gauche:inverse" aria-hidden="true" focusable="false">
+                            <svg class="menu-svg-sens" aria-hidden="true" focusable="false">
                                 <use xlink:href="#fleche"></use>
                             </svg>
-                            <span class="menu-label">Agrandir le menu</span>
+                            <span class="menu-label :small">Réduire le menu</span>
+                            <span class="menu-label :large">Agrandir le menu</span>
                         </button>
                     </li>
                     <li>
-                        <button class="js_menu-btn js_menu-btnDisplay menu-btn hover :g2">
+                        <button class="js_menu-btn js_menu-btnFermer menu-btn hover :g2">
                             <svg aria-hidden="true" focusable="false">
                                 <use xlink:href="#fermer"></use>
                             </svg>
@@ -196,7 +197,7 @@
                     </li>
                 </ul>
             </nav>
-            <button class="app_bas js_menu-btnDisplay hover :g1" data-position="bas">
+            <button class="app_bas js_menu-btnAffiche hover :g1" data-position-y="bas">
                 <svg aria-hidden="true" focusable="false">
                     <use xlink:href="#parametre"></use>
                 </svg>

@@ -1,39 +1,55 @@
-const menuBtnDisplay = document.querySelectorAll('.js_menu-btnDisplay');
+const menuBtnAffiche = document.querySelectorAll('.js_menu-btnAffiche');
+const menuBtnFermer = document.querySelector('.js_menu-btnFermer');
+const contenu = document.querySelector('.js_contenu');
 const menu = document.querySelector('.js_menu');
-const menuPositionY = document.querySelector('.js_menu-positionY');
 const menuBtn = document.querySelectorAll('.js_menu-btn');
 const app = document.querySelector('.js_app');
 
-function displayMenu() {
-    if (menu.classList.contains(':visible')) {
+
+
+function masqueMenu() {
+    if ( document.documentElement.dataset.menuAffiche == 'oui' ){
         menu.classList.remove(':visible');
-        positionMenuY(this);
-        positionMenuX(this);
-    } else {
-        menu.classList.add(':visible');
-        positionMenuY(this);
-        positionMenuX(this);
+        document.documentElement.dataset.menuAffiche = '';
     }
 }
 
-function positionMenuY(el) {
-    if (el.dataset.position == 'bas') {
-        menuPositionY.classList.add(menuPositionY.dataset.positionBas);
-    } else {
-        menuPositionY.classList.remove(menuPositionY.dataset.positionBas);
-    }
-}
+function afficheMenu() {
+    //Active l'interaction du click sur le contenu pour fermer le menu
+    document.documentElement.dataset.menuAffiche = 'oui';
 
-function positionMenuX(el) {
-    var largeurEl = el.offsetWidth;
+    //set position X
+    var largeurBouton = this.offsetWidth;
     var positionCurseur = window.event.offsetX;
-    if ( positionCurseur <= (largeurEl / 2) ) {
-        document.documentElement.dataset.position = 'gauche';
+    if ( positionCurseur <= (largeurBouton / 2) ) {
+        document.documentElement.dataset.positionX = 'gauche';
     } else {
-        document.documentElement.dataset.position = 'droite';
+        document.documentElement.dataset.positionX = 'droite';
     }
+
+    //set position Y
+    document.documentElement.dataset.positionY = this.dataset.positionY;
+
+    //affiche le menu
+    menu.classList.add(':visible');
 }
 
+
+
+// Affiche le menu
+for (let i = 0; i < menuBtnAffiche.length; i++) {
+    menuBtnAffiche[i].addEventListener('click', afficheMenu, false);
+}
+
+// Masque le menu
+contenu.addEventListener('click', masqueMenu, false);
+menuBtnFermer.addEventListener('click', masqueMenu, false);
+
+
+
+// Ajoute un overlay au site au survol du menu
+// Désactiver tant que l'on n'affiche pas les intitulés au survol/touch lorsque que le menu est réduit
+/*
 function overlayContentAdd() {
     app.classList.add(classOverlay);
 }
@@ -42,16 +58,6 @@ function overlayContentRemove() {
         app.classList.remove(classOverlay);
     }
 }
-
-// affiche/masque le menu
-for (let i = 0; i < menuBtnDisplay.length; i++) {
-    menuBtnDisplay[i].addEventListener('click', displayMenu, false);
-}
-
-
-// Ajoute un overlay au site au survol du menu
-// Désactiver tant que l'on n'affiche pas les intitulés au survol/touch lorsque que le menu est réduit
-/*
 for (let i = 0; i < menuBtn.length; i++) {
     if (Modernizr.touch) { 
         menuBtn[i].addEventListener('touchstart', overlayContentAdd, false);
