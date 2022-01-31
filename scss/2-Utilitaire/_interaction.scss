@@ -31,3 +31,21 @@
     color: var(--gamme2__hover);
     fill: var(--gamme2__hover);
 }
+
+
+
+
+
+.btn {
+    color: var(--gamme1__texte1);
+    border: 1px solid var(--gamme1__texte1);
+    padding: $espace-s;
+}
+.btn:hover {
+    border: 1px solid var(--gamme1__hover);
+    cursor: pointer;
+}
+.btn:active {
+    color: var(--gamme1__interaction);
+    border: 1px solid var(--gamme1__interaction);
+}

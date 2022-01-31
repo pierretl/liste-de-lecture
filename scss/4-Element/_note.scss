@@ -1,0 +1,32 @@
+$largeur-note: 90px;
+
+.note__conteneur {
+    display: flex;
+    align-items: center;
+    color: var(--gamme1__texte2);
+}
+
+.note {
+    display: grid;
+    grid-template-columns: $largeur-note;
+    margin-right: $espace-s;
+}
+
+.note svg {
+    width: $largeur-note;
+    fill: var(--gamme1__texte2);
+}
+
+.note--vide,
+.note--plein {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.note--plein {
+    overflow-x: hidden;
+}
+
+.note--plein svg {
+    fill: var(--gamme1__texte3);
+}

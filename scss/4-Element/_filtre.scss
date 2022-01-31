@@ -56,20 +56,3 @@ input:checked + .app_filtre_label {
     fill: var(--gamme1__interaction);
     color: var(--gamme1__interaction);
 }
-
-
-
-//button
-.app_filtre-contenu button {
-    color: var(--gamme1__texte1);
-    border: 1px solid var(--gamme1__texte1);
-    padding: $espace-s;
-}
-.app_filtre-contenu button:hover {
-    border: 1px solid var(--gamme1__hover);
-    cursor: pointer;
-}
-.app_filtre-contenu button:active {
-    color: var(--gamme1__interaction);
-    border: 1px solid var(--gamme1__interaction);
-}

@@ -17,6 +17,8 @@ fetch(endpoint1)
       titre: originalItem.c[1] === null ? '' : originalItem.c[1].v,
       volume: originalItem.c[2] === null ? '' : originalItem.c[2].v,
       note: originalItem.c[3] === null ? '' : originalItem.c[3].v,
+      notePourcentage : originalItem.c[3] === null ? '' : originalItem.c[3].v * 10,
+      noteSur5 : originalItem.c[3] === null ? '' : originalItem.c[3].v / 2,
       info: originalItem.c[4] === null ? '' : originalItem.c[4].v,
       statut: originalItem.c[5] === null ? '' : originalItem.c[5].v,
       stock: originalItem.c[6] === null ? '' : originalItem.c[6].v,
