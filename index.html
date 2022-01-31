@@ -32,6 +32,8 @@
                 <h1 class="menu-label">Liste de lecture</h1>
             </button>
             <main class="app_contenu js_contenu">
+                <div id="contenu"></div>
+                <br>
                 <script id="handlebars-template" type="text/x-handlebars-template">
                     {{#each lectures}}
                         <li class="mb-l">
@@ -43,9 +45,13 @@
                                 <div class="align-right">
                                     {{#ifEquals statut "Terminé"}}
                                         {{#ifSuperieur volume '1'}}
-                                            <span class="texte--g2-1 p-s">Série en <strong>{{volume}}</strong> volumes</span>
+                                            <span class="texte--g2-1 p-s">
+                                                Série en <strong>{{volume}}</strong> volumes
+                                            </span>
                                         {{else}}
-                                            <span class="texte--g2-1 p-s">One Shot</span>
+                                            <span class="texte--g2-1 p-s">
+                                                One Shot
+                                            </span>
                                         {{/ifSuperieur}}
                                     {{/ifEquals}}
                                     {{#ifEquals statut "En cours"}}
@@ -54,11 +60,17 @@
                                                 {{volume}} volume{{#ifSuperieur volume '1'}}s{{/ifSuperieur}}
                                             </span>
                                         {{else}}
-                                            <strong class="texte--g3-1 p-s">{{volume}} / ?</strong>
+                                            <span class="d-inline-block texte--g3-1 p-s align-center">
+                                                <strong>{{volume}}</strong>+
+                                                <br>
+                                                <svg aria-hidden="true" focusable="false">
+                                                    <use xlink:href="#caddie"></use>
+                                                </svg>
+                                            </span>                                      
                                         {{/ifEquals}}
                                     {{/ifEquals}}
                                     {{#ifEquals statut "Abandonné"}}
-                                        <span class="texte--g1-2">{{volume}} / ?</span>
+                                        <span class="texte--g1-2">{{volume}} volume{{#ifSuperieur volume '1'}}s{{/ifSuperieur}}</span>
                                         <br>
                                         <span class="texte--s texte--g1-2 mt-s">Lecture abandonné</span>
                                     {{/ifEquals}}
@@ -77,58 +89,6 @@
                         <p class="texte--l">Il n'y a pas de résultat avec ces critères</p>
                     {{/each}}
                 </script>
-                <form class="js_filtre hide" name="filtresForm">
-                    <hr>
-                    <ul class="d-flex">
-                        <li>
-                            <strong>Statut</strong><br>
-                            <input type="radio" name="statut" id="allStatut" value="all" checked>
-                            <label for="allStatut">Tous</label>
-                            <br>
-                            <input type="radio" name="statut" id="abandonne" value="Abandonné">
-                            <label for="abandonne">Abandonné</label>
-                            <br>
-                            <input type="radio" name="statut" id="termine" value="Terminé">
-                            <label for="termine">Terminé</label>
-                            <br>
-                            <input type="radio" name="statut" id="encours" value="En cours">
-                            <label for="encours">En cours</label>
-                        </li>
-                        <li>
-                            <strong>Type</strong><br>
-                            <input type="radio" name="type" id="allType" value="all" checked>
-                            <label for="allType">Tous</label>
-                            <br>
-                            <input type="radio" name="type" id="manga" value="Manga">
-                            <label for="manga">Manga</label>
-                            <br>
-                            <input type="radio" name="type" id="comics" value="Comics">
-                            <label for="comics">Comics</label>
-                            <br>
-                            <input type="radio" name="type" id="roman" value="Roman">
-                            <label for="roman">Roman</label>
-                        </li>
-                        <li>
-                            <strong>Stock</strong><br>
-                            <input type="radio" name="stock" id="allStock" value="all" checked>
-                            <label for="allStock">Tous</label>
-                            <br>
-                            <input type="radio" name="stock" id="possede" value="Possédé">
-                            <label for="possede">Possédé</label>
-                            <br>
-                            <input type="radio" name="stock" id="vendu" value="Vendu">
-                            <label for="vendu">Vendu</label>
-                        </li>
-                        <li>
-                            <strong>Ordre</strong><br>
-                            <button class="hover :g2" type="button" onclick="controle(filtresForm)">Alphabétique</button>
-                            <br>
-                            <button class="hover :g2" type="button" onclick="controle(filtresForm, 'note')" id="btnPreference">Préférence</button>
-                        </li>
-                    </ul>
-                    <hr>
-                </form>
-                <br>
                 <ul id="handlebars-output">
                     <li class="align-center">
                         <span class="js--loader svg:loader"></span>
@@ -136,6 +96,109 @@
                     </li>
                 </ul>
             </main>
+            <form class="app_filtre js_filtre hide" name="filtresForm">
+                <ul class="app_filtre-contenu mt-s">
+                    <li>
+                        <fieldset>
+                            <legend>Statut</legend>
+                            <input type="radio" name="statut" id="allStatut" value="all" checked>
+                            <label for="allStatut" class="app_filtre_label">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use xlink:href="#tag"></use>
+                                </svg>
+                                <span>Tous</span>
+                            </label>
+                            <input type="radio" name="statut" id="abandonne" value="Abandonné">
+                            <label for="abandonne" class="app_filtre_label">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use xlink:href="#poubelle"></use>
+                                </svg>
+                                <span>Abandonné</span>
+                            </label>
+                            <input type="radio" name="statut" id="termine" value="Terminé">
+                            <label for="termine" class="app_filtre_label">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use xlink:href="#arrive"></use>
+                                </svg>
+                                <span>Terminé</span>
+                            </label>
+                            <input type="radio" name="statut" id="encours" value="En cours">
+                            <label for="encours" class="app_filtre_label">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use xlink:href="#caddie"></use>
+                                </svg>
+                                <span>En cours</span>
+                            </label>
+                        </fieldset>
+                    </li>
+                    <li>
+                        <fieldset>
+                            <legend>Type</legend>
+                            <input type="radio" name="type" id="allType" value="all" checked>
+                            <label for="allType" class="app_filtre_label">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use xlink:href="#livres"></use>
+                                </svg>
+                                <span>Tous</span>
+                            </label>
+                            <input type="radio" name="type" id="manga" value="Manga">
+                            <label for="manga" class="app_filtre_label">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use xlink:href="#torii"></use>
+                                </svg>
+                                <span>Manga</span>
+                            </label>
+                            <input type="radio" name="type" id="comics" value="Comics">
+                            <label for="comics" class="app_filtre_label">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use xlink:href="#usa"></use>
+                                </svg>
+                                <span>Comics</span>
+                            </label>
+                            <input type="radio" name="type" id="roman" value="Roman">
+                            <label for="roman" class="app_filtre_label">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use xlink:href="#livre"></use>
+                                </svg>
+                                <span>Roman</span>
+                            </label>
+                        </fieldset>
+                    </li>
+                    <li>
+                        <fieldset>
+                            <legend>Stock</legend>
+                            <input type="radio" name="stock" id="allStock" value="all" checked>
+                            <label for="allStock" class="app_filtre_label">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use xlink:href="#stack"></use>
+                                </svg>
+                                <span>Tous</span>
+                            </label>
+                            <input type="radio" name="stock" id="possede" value="Possédé">
+                            <label for="possede" class="app_filtre_label">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use xlink:href="#boite"></use>
+                                </svg>
+                                <span>Possédé</span>
+                            </label>
+                            <input type="radio" name="stock" id="vendu" value="Vendu">
+                            <label for="vendu" class="app_filtre_label">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use xlink:href="#piece"></use>
+                                </svg>
+                                <span>Vendu</span>
+                            </label>
+                        </fieldset>
+                    </li>
+                    <li>
+                        <fieldset>
+                            <legend>Ordre</legend>
+                            <button type="button" onclick="controle(filtresForm)">Alphabétique</button>
+                            <button type="button" onclick="controle(filtresForm, 'note')" id="btnPreference">Préférence</button>
+                        </fieldset>
+                    </li>
+                </ul>
+            </form>
             <nav class="app_menu js_menu">
                 <ul>
                     <li>
@@ -147,12 +210,12 @@
                         </a>
                     </li>
                     <li>
-                        <button class="js_menu-btn js_fitre-achat  menu-btn hover :g2">
+                        <a href="#contenu" class="js_menu-btn js_fitre-achat  menu-btn hover :g2">
                             <svg aria-hidden="true" focusable="false">
                                 <use xlink:href="#caddie"></use>
                             </svg>
                             <span class="menu-label">Liste d'achat</span>
-                        </button>
+                        </a>
                     </li>
                     <li>
                         <button class="js_menu-btn js_filtre-btnDisplay menu-btn hover :g2">
@@ -233,6 +296,36 @@
             </symbol>
             <symbol id="caddie" viewBox="0 0 576 512" aria-hidden="true">
                 <path d="M551.991 64H129.28l-8.329-44.423C118.822 8.226 108.911 0 97.362 0H12C5.373 0 0 5.373 0 12v8c0 6.627 5.373 12 12 12h78.72l69.927 372.946C150.305 416.314 144 431.42 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-17.993-7.435-34.24-19.388-45.868C506.022 391.891 496.76 384 485.328 384H189.28l-12-64h331.381c11.368 0 21.177-7.976 23.496-19.105l43.331-208C578.592 77.991 567.215 64 551.991 64zM240 448c0 17.645-14.355 32-32 32s-32-14.355-32-32 14.355-32 32-32 32 14.355 32 32zm224 32c-17.645 0-32-14.355-32-32s14.355-32 32-32 32 14.355 32 32-14.355 32-32 32zm38.156-192H171.28l-36-192h406.876l-40 192z"></path>
+            </symbol>
+            <symbol id="torii" viewBox="0 0 512 512" aria-hidden="true">
+                <path d="M480 160c17.67 0 32-14.33 32-32V0a303.17 303.17 0 0 1-135.55 32h-240.9A303.17 303.17 0 0 1 0 0v128c0 17.67 14.33 32 32 32h32v96H8c-4.42 0-8 3.58-8 8v16c0 4.42 3.58 8 8 8h56v216c0 4.42 3.58 8 8 8h16c4.42 0 8-3.58 8-8V288h320v216c0 4.42 3.58 8 8 8h16c4.42 0 8-3.58 8-8V288h56c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8h-56v-96h32zM32 128V47.56C65.39 58.38 100.49 64 135.55 64h240.89c35.07 0 70.17-5.62 103.55-16.44V128H32zm64 32h144v96H96v-96zm320 96H272v-96h144v96z"></path>
+            </symbol>
+            <symbol id="livre" viewBox="0 0 448 512" aria-hidden="true">
+                <path d="M356 160H188c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12zm12 52v-8c0-6.6-5.4-12-12-12H188c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h168c6.6 0 12-5.4 12-12zm64.7 268h3.3c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H80c-44.2 0-80-35.8-80-80V80C0 35.8 35.8 0 80 0h344c13.3 0 24 10.7 24 24v368c0 10-6.2 18.6-14.9 22.2-3.6 16.1-4.4 45.6-.4 65.8zM128 384h288V32H128v352zm-96 16c13.4-10 30-16 48-16h16V32H80c-26.5 0-48 21.5-48 48v320zm372.3 80c-3.1-20.4-2.9-45.2 0-64H80c-64 0-64 64 0 64h324.3z"></path>
+            </symbol>
+            <symbol id="usa" viewBox="0 0 448 512" aria-hidden="true">
+                <path d="M472.5 0c-7 0-14.3 1.5-21.2 4.6-50.5 22.7-87.8 30.3-119.1 30.3C266.1 34.9 227.7.4 151.4.4 119.8.4 81.2 6.9 32 23.6V16c0-8.8-7.2-16-16-16S0 7.2 0 16v488c0 4.4 3.6 8 8 8h16c4.4 0 8-3.6 8-8V403.6c44.2-15.8 81.6-22 114.5-22 81.2 0 137.8 34.4 219.1 34.4 35.3 0 75.1-6.5 123.7-25 14-5.4 22.8-17.9 22.8-31.2V33.4C512 13 493.4 0 472.5 0zM256 54.3c58.3 17.5 113.9 21.8 208.3-20.5 9.4-4.2 15.7-.5 15.7 5.6v52.4c-98.8 41.7-153.2 28.3-224 16.1V54.3zm0 86c34.5 6.1 64.2 12 98.8 12 35.2 0 75.8-7 125.2-26.3v61.6c-103.5 33.4-162.8 18.4-224 4v-51.3zM32 57.2c46-16.7 85.3-24.8 119.4-24.8 27.7 0 50.5 5.5 72.6 12.1v140c-51.1-10.4-108.6-14.8-192 10.4V57.2zm0 171.1c100.6-32.4 159.1-19.2 220.4-4.7 57.5 13.6 120.2 30 227.7-2.4v54.5c-100.5 32.4-159 19.2-220.4 4.7-61-14.4-124.5-28.6-227.7 2.5v-54.6zM365.5 384c-75.6 0-133-34.4-219.1-34.4-36.7 0-74.4 6.5-114.5 19.8v-53.1c100.6-32.4 159-19.2 220.3-4.7 58.8 13.8 120.5 29.9 227.7-2.4v50.3c-.8 2.5-58.8 24.5-114.4 24.5zM96 64c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16zm72 32c8.8 0 16-7.2 16-16s-7.2-16-16-16-16 7.2-16 16 7.2 16 16 16zm-72 24c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16zm72 32c8.8 0 16-7.2 16-16s-7.2-16-16-16-16 7.2-16 16 7.2 16 16 16z"></path>
+            </symbol>
+            <symbol id="livres" viewBox="0 0 576 512" aria-hidden="true">
+                <path d="M575.33 456.43L399 8.02C397.28 3.1 392.61 0 387.65 0c-3.01 0-4.97 1.03-11.49 3.31-6.46 2.26-9.82 8.24-6.27 18.38-16.46 9.69-59.15 24.09-75.5 26.42-1.33-3.78-1.97-6.62-6.4-9.23V32c0-17.67-14.33-32-32-32h-96c-5.96 0-11.22 2.07-16 4.9C139.22 2.07 133.96 0 128 0H32C14.33 0 0 14.33 0 32v448c0 17.67 14.33 32 32 32h96c5.96 0 11.22-2.07 16-4.9 4.78 2.84 10.04 4.9 16 4.9h96c17.67 0 32-14.33 32-32V118.88l151.43 385.1c1.73 4.92 6.4 8.02 11.35 8.02 3 0 4.96-1.03 11.49-3.31 6.44-2.25 9.83-8.23 6.27-18.38 16.46-9.69 59.15-24.09 75.5-26.42 3.65 10.4 10.13 12.65 16.38 10.46l7.55-2.64c6.23-2.19 9.54-9.07 7.36-15.28zM128 480H32v-64h96v64zm0-96H32V128h96v256zm0-288H32V32h96v64zm128 384h-96v-64h96v64zm0-96h-96V128h96v256zm0-288h-96V32h96v64zm203.15 367.54L303.79 74.88c25.22-4.74 64.01-20.33 75.5-26.42l155.36 388.65c-25.23 4.75-64.01 20.33-75.5 26.43z"></path>
+            </symbol>
+            <symbol id="piece" viewBox="0 0 512 512" aria-hidden="true">
+                <path d="M256 64C114.67 64 0 128.44 0 208v112c0 70.72 114.67 128 256 128s256-57.28 256-128V208c0-79.56-114.67-144-256-144zM64 366.61C43.69 352 32 335.68 32 320v-42.34A183.65 183.65 0 0 0 64 303zm80 35.32A306.25 306.25 0 0 1 96 385v-64.69a327.39 327.39 0 0 0 48 17zm96 13.68a450 450 0 0 1-64-6.61v-64.27a442.1 442.1 0 0 0 64 6.53zm96-6.61a450 450 0 0 1-64 6.64v-64.38a442.1 442.1 0 0 0 64-6.53zm80-24a306.25 306.25 0 0 1-48 16.9v-64.6a327.39 327.39 0 0 0 48-17zm64-65c0 15.68-11.69 32-32 46.61V303a183.65 183.65 0 0 0 32-25.37zm-224 0c-132 0-224-59-224-112S124 96 256 96s224 59 224 112-92 112-224 112z"></path>
+            </symbol>
+            <symbol id="boite" viewBox="0 0 512 512" aria-hidden="true">
+                <path d="M509.5 184.6L458.9 32.8C452.4 13.2 434.1 0 413.4 0H98.6c-20.7 0-39 13.2-45.5 32.8L2.5 184.6c-1.6 4.9-2.5 10-2.5 15.2V464c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V199.8c0-5.2-.8-10.3-2.5-15.2zM32 199.8c0-1.7.3-3.4.8-5.1L83.4 42.9C85.6 36.4 91.7 32 98.6 32H240v168H32v-.2zM480 464c0 8.8-7.2 16-16 16H48c-8.8 0-16-7.2-16-16V232h448v232zm0-264H272V32h141.4c6.9 0 13 4.4 15.2 10.9l50.6 151.8c.5 1.6.8 3.3.8 5.1v.2z"></path>
+            </symbol>
+            <symbol id="stack" viewBox="0 0 384 512" aria-hidden="true">
+                <path d="M290.7 311L95 269.7 86.8 309l195.7 41zm51-87L188.2 95.7l-25.5 30.8 153.5 128.3zm-31.2 39.7L129.2 179l-16.7 36.5L293.7 300zM262 32l-32 24 119.3 160.3 32-24zm20.5 328h-200v39.7h200zm39.7 80H42.7V320h-40v160h359.5V320h-40z"></path>
+            </symbol>
+            <symbol id="tag" viewBox="0 0 512 512" aria-hidden="true">
+                <path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.745 18.745 49.137 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zm-22.627 45.255L271.196 475.314c-6.243 6.243-16.375 6.253-22.627 0L36.686 263.431A15.895 15.895 0 0 1 32 252.117V48c0-8.822 7.178-16 16-16h204.118c4.274 0 8.292 1.664 11.314 4.686l211.882 211.882c6.238 6.239 6.238 16.39 0 22.628zM144 124c11.028 0 20 8.972 20 20s-8.972 20-20 20-20-8.972-20-20 8.972-20 20-20m0-28c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path>
+            </symbol>
+            <symbol id="arrive" viewBox="0 0 512 512" aria-hidden="true">
+                <path d="M464 96.3c-22.5 8.9-49.7 17.4-76.8 22.2v72.6c26.8-4.4 51.7-13.8 76.8-23.7zm0 212.5v-71.1c-16.8 10.6-46.8 21.5-76.8 25.5v72c30.7-3.2 58.6-14.9 76.8-26.4zM80 186.3c16.2-10.2 46.9-20.7 76.8-25V88.8C126.1 92 98.2 103.7 80 115.2zm0 133.5c23.1-7.7 50.3-13.1 76.8-16v-71.7c-26 2.7-52 8.4-76.8 16.6zm230.4-63.1c-25.1-6.9-49.6-16.6-76.8-22.2v69.7c27.7 4.7 52 14 76.8 21.4v-68.9c27.5 7.6 49.7 10.1 76.8 6.5v-72.1c-24.4 4-48.6 3.6-76.8-2.5zM477.9 37.8c-36.8 17.1-86.3 36.9-133.5 36.9-56.7 0-102-34.7-171.9-34.7-28.5 0-53.7 5.3-77 14.4C99.6 24.7 75.8-1.1 46.1 0 21.5 1 1.4 20.8.1 45.3c-1.2 22.1 12.5 41.1 31.9 48V500c0 6.6 5.4 12 12 12h8c6.6 0 12-5.4 12-12V378.4c31.4-14.5 72.1-29.1 135.7-29.1 56.6 0 101.9 34.7 171.8 34.7 51.3 0 91.9-17.2 130-43 6.6-4.5 10.5-11.9 10.5-19.9V59.5c0-17.5-18.2-29.1-34.1-21.7zM48 68c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20zm432 249.3C456.9 334 415.5 352 371.5 352c-63.6 0-108.2-34.7-171.8-34.7-46 0-102.3 10.2-135.7 26V106.7C87.1 90 128.5 72 172.5 72c63.6 0 108.2 34.7 171.8 34.7 45.9 0 102.2-18.8 135.7-34.7zM310.4 119.7c-27.7-4.7-52.3-14.2-76.8-21.4v67.9c25.3 6.7 49.6 16.4 76.8 22.4zm-153.6 41.5v70.9c34.2-3.6 56.2-1.7 76.8 2.5v-68.4c-29.7-7.8-51.3-8.7-76.8-5z"></path>
+            </symbol>
+            <symbol id="poubelle" viewBox="0 0 448 512" aria-hidden="true">
+                <path d="M440 64H336l-33.6-44.8A48 48 0 0 0 264 0h-80a48 48 0 0 0-38.4 19.2L112 64H8a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h18.9l33.2 372.3a48 48 0 0 0 47.8 43.7h232.2a48 48 0 0 0 47.8-43.7L421.1 96H440a8 8 0 0 0 8-8V72a8 8 0 0 0-8-8zM171.2 38.4A16.1 16.1 0 0 1 184 32h80a16.1 16.1 0 0 1 12.8 6.4L296 64H152zm184.8 427a15.91 15.91 0 0 1-15.9 14.6H107.9A15.91 15.91 0 0 1 92 465.4L59 96h330z"></path>
             </symbol>
         </svg>
 

@@ -32,6 +32,12 @@ function afficheMenu() {
 
     //affiche le menu
     menu.classList.add(':visible');
+
+    //masque le formulaire filtre si il est afficher et affiche la zone
+    if (!filtre.classList.contains('hide')){
+        filtre.classList.add('hide');
+        contenu.classList.remove('hide');
+    }
 }
 
 

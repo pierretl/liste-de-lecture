@@ -1,0 +1,75 @@
+.app_filtre-contenu {
+    padding-top: $app_btn-padding;
+    padding-bottom: $app_btn-padding;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media screen and (max-width:370px) {
+    .app_filtre-contenu {
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+.app_filtre-contenu li:not(:first-child) {
+    margin-top: $espace-m;
+}
+
+
+
+// fieldset & legend
+.app_filtre-contenu fieldset {
+    display: flex;
+    justify-content: space-around;
+    border-color: var(--gamme1__bordure);
+}
+.app_filtre-contenu legend {
+    color: var(--gamme1__texte2);
+}
+
+
+
+// input label
+.app_filtre-contenu input {
+    position: absolute;
+    left: -9999px;
+}
+.app_filtre_label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $espace-s;
+    fill: var(--gamme1__texte1);
+    color: var(--gamme1__texte1);
+}
+.app_filtre_label svg {
+    margin-bottom: $espace-m;
+}
+.app_filtre_label:hover {
+    cursor: pointer;
+    fill: var(--gamme1__hover);
+    color: var(--gamme1__hover);
+}
+input:checked + .app_filtre_label {
+    fill: var(--gamme1__interaction);
+    color: var(--gamme1__interaction);
+}
+
+
+
+//button
+.app_filtre-contenu button {
+    color: var(--gamme1__texte1);
+    border: 1px solid var(--gamme1__texte1);
+    padding: $espace-s;
+}
+.app_filtre-contenu button:hover {
+    border: 1px solid var(--gamme1__hover);
+    cursor: pointer;
+}
+.app_filtre-contenu button:active {
+    color: var(--gamme1__interaction);
+    border: 1px solid var(--gamme1__interaction);
+}

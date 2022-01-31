@@ -45,6 +45,15 @@ body {
     padding-top: $app_btn-padding;
     padding-bottom: $app_btn-padding;
 }
+.app_contenu > * {
+    width: $app_btn-largeur-bordure;
+    margin-right: auto;
+    margin-left: auto;
+}
+.app_filtre {
+    flex-grow: 1;
+    overflow-x: auto;
+}
 
 
 
@@ -60,14 +69,6 @@ body {
 }
 [data-menu-largeur="large"] .app_menu {
     width: calc($app_menu-largeur-grand);
-}
-
-
-
-.app_contenu > * {
-    width: $app_btn-largeur-bordure;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 

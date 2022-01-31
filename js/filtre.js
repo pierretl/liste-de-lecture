@@ -5,9 +5,8 @@ const filtreAchat = document.querySelector(".js_fitre-achat");
 filtreBtn.addEventListener('click', function () {
     if (filtre.classList.contains('hide')){
         filtre.classList.remove('hide');
-        displayMenu();
-    } else {
-        filtre.classList.add('hide');
+        contenu.classList.add('hide');
+        masqueMenu();
     }
 });
 
@@ -15,4 +14,5 @@ filtreAchat.addEventListener('click', function () {
     document.getElementById('encours').checked = true;
     document.getElementById('possede').checked = true;
     document.getElementById('btnPreference').click();
+    masqueMenu();
 });

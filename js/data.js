@@ -141,6 +141,10 @@ function controle(formulaire, ordre) {
   //envois des données
   update(filtreLecture);
 
+
+  //affiche le resultat
+  filtre.classList.add('hide');
+  contenu.classList.remove('hide');
 }
 
 

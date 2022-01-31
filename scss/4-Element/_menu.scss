@@ -50,10 +50,15 @@
     margin-bottom: $espace-m;
 }
 
+.app_menu a{
+    text-decoration: none;
+}
+
 .menu-btn {
     display: flex;
     text-align: left;
 }
+
 .menu-btn svg {
     width: 24px;
     flex-shrink: 0;

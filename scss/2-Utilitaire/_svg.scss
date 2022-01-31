@@ -2,6 +2,10 @@ svg {
     width: $taille-picto;
     height: $taille-picto;
 }
+.svg\:logo {
+    width: 35px;
+    height: 35px;
+}
 
 
 
@@ -12,13 +16,6 @@ svg {
 .svg\:loader path {
     stroke: var(--gamme1__texte2);
     fill:   var(--gamme1__texte2);
-}
-
-
-
-.svg\:logo {
-    width: 35px;
-    height: 35px;
 }
 
 
