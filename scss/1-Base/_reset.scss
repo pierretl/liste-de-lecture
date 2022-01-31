@@ -5,8 +5,9 @@
 body {
     padding: 0;
     background-color: var(--gamme1__fond);
-    font-family: sans-serif;
+    font-family: 'FontLecture', sans-serif;
     font-size: 1rem;
+    font-weight: 400;
     color: var(--gamme1__texte1);
 }
 
@@ -16,11 +17,11 @@ p,
 ul,
 ol {
     margin: 0;
-    font-weight: normal;
 }
 
 h1 {
     font-size: 1rem;
+    font-weight: 300;
 }
 
 ul {

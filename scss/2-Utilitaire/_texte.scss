@@ -7,6 +7,7 @@
 
 .texte--l {
     font-size: 1.3rem;
+    font-weight: 300;
 }
 .texte--s {
     font-size: .8rem;
@@ -22,4 +23,5 @@
 .texte--g3-1 {
     background-color: var(--gamme3__fond);
     color: var(--gamme3__texte1);
+    fill: var(--gamme3__texte1)
 }
