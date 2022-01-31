@@ -37,7 +37,7 @@
                 <script id="handlebars-template" type="text/x-handlebars-template">
                     {{#each lectures}}
                         <li class="mb-l">
-                            <div class="d-flex">
+                            <div class="d-flex align-items-center">
                                 <div>
                                     <p class="texte--l{{#ifEquals statut 'Abandonné'}} texte--g1-2{{/ifEquals}}">{{#if article}}{{article}}{{/if}}{{titre}}</p>
                                     <div class="note__conteneur">
@@ -45,7 +45,7 @@
                                             <svg class="note--vide" aria-hidden="true" focusable="false">
                                                 <use xlink:href="#note"></use>
                                             </svg>
-                                            <div class="note--plein" style="width: {{notePourcentage}}%;">
+                                            <div class="note--plein" style="width:{{notePourcentage}}%">
                                                 <svg aria-hidden="true" focusable="false">
                                                     <use xlink:href="#note"></use>
                                                 </svg>
@@ -57,11 +57,11 @@
                                 <div class="align-right">
                                     {{#ifEquals statut "Terminé"}}
                                         {{#ifSuperieur volume '1'}}
-                                            <span class="texte--g2-1 p-s">
+                                            <span class="texte--g2-1 px-s py-xs radius">
                                                 Série en <strong>{{volume}}</strong> volumes
                                             </span>
                                         {{else}}
-                                            <span class="texte--g2-1 p-s">
+                                            <span class="texte--g2-1 px-s py-xs radius">
                                                 One Shot
                                             </span>
                                         {{/ifSuperieur}}
@@ -72,7 +72,7 @@
                                                 {{volume}} volume{{#ifSuperieur volume '1'}}s{{/ifSuperieur}}
                                             </span>
                                         {{else}}
-                                            <span class="d-inline-block texte--g3-1 p-s align-center">
+                                            <span class="d-inline-block texte--g3-1 p-s align-center radius">
                                                 <strong>{{volume}}</strong>+
                                                 <br>
                                                 <svg aria-hidden="true" focusable="false">
