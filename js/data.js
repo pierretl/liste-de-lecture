@@ -41,10 +41,14 @@ fetch(endpoint1)
 
   Handlebars.registerHelper('ifSuperieur', function(a, b, options) {
     return (a > b) ? options.fn(this) : options.inverse(this);
-});
+  });
   
   update(formatted);
- 
+
+  //liste d'achat par défaut
+  document.getElementById('encours').checked = true;
+  document.getElementById('possede').checked = true;
+  document.getElementById('btnPreference').click();
 });
 
 
