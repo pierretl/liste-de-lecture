@@ -36,66 +36,81 @@
                 <br>
                 <script id="handlebars-template" type="text/x-handlebars-template">
                     {{#each lectures}}
-                        <li class="mb-l">
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <p class="texte--l{{#ifEquals statut 'Abandonné'}} texte--g1-2{{/ifEquals}}">{{#if article}}{{article}}{{/if}}{{titre}}</p>
-                                    <div class="note__conteneur">
-                                        <div class="note">
-                                            <svg class="note--vide" aria-hidden="true" focusable="false">
+                        <li class="lecture">
+                            <div class="lecture_info">
+                                <p class="texte--l{{#ifEquals statut 'Abandonné'}} texte--g1-2{{/ifEquals}}">{{#if article}}{{article}}{{/if}}{{titre}}</p>
+                                <div class="note__conteneur">
+                                    <div class="note">
+                                        <svg class="note--vide" aria-hidden="true" focusable="false">
+                                            <use xlink:href="#note"></use>
+                                        </svg>
+                                        <div class="note--plein" style="width:{{notePourcentage}}%">
+                                            <svg aria-hidden="true" focusable="false">
                                                 <use xlink:href="#note"></use>
                                             </svg>
-                                            <div class="note--plein" style="width:{{notePourcentage}}%">
-                                                <svg aria-hidden="true" focusable="false">
-                                                    <use xlink:href="#note"></use>
-                                                </svg>
-                                            </div>
                                         </div>
-                                        {{noteSur5}}
                                     </div>
+                                    {{noteSur5}}
                                 </div>
-                                <div class="align-right">
-                                    {{#ifEquals statut "Terminé"}}
-                                        {{#ifSuperieur volume '1'}}
-                                            <span class="texte--g2-1 px-s py-xs radius">
-                                                Série en <strong>{{volume}}</strong> volumes
-                                            </span>
-                                        {{else}}
-                                            <span class="texte--g2-1 px-s py-xs radius">
-                                                One Shot
-                                            </span>
-                                        {{/ifSuperieur}}
-                                    {{/ifEquals}}
-                                    {{#ifEquals statut "En cours"}}
-                                        {{#ifEquals stock "Vendu"}}
-                                            <span class="texte--g1-2">
-                                                {{volume}} volume{{#ifSuperieur volume '1'}}s{{/ifSuperieur}}
-                                            </span>
-                                        {{else}}
-                                            <span class="d-inline-block texte--g3-1 p-s align-center radius">
-                                                <strong>{{volume}}</strong>+
-                                                <br>
-                                                <svg aria-hidden="true" focusable="false">
-                                                    <use xlink:href="#caddie"></use>
-                                                </svg>
-                                            </span>                                      
-                                        {{/ifEquals}}
-                                    {{/ifEquals}}
-                                    {{#ifEquals statut "Abandonné"}}
-                                        <span class="texte--g1-2">{{volume}} volume{{#ifSuperieur volume '1'}}s{{/ifSuperieur}}</span>
-                                        <br>
-                                        <span class="texte--s texte--g1-2 mt-s">Lecture abandonné</span>
-                                    {{/ifEquals}}
-                                    {{#ifEquals stock "Vendu"}}
-                                        <p class="texte--s texte--g1-2 mt-s">Vendu</p>
-                                    {{/ifEquals}}
-                                </div>
+                                {{#if info}}
+                                    <p class="texte--g1-2">
+                                        {{info}}
+                                    </p>
+                                {{/if}}
                             </div>
-                            {{#if info}}
-                                <p class="texte--g1-2 mt-s">
-                                    {{info}}
-                                </p>
-                            {{/if}}
+                            <div class="lecture_libelle menu-label">
+                                {{#ifEquals statut "Terminé"}}
+                                    {{#ifSuperieur volume '1'}}
+                                        <p class="texte--g1-2">Terminé</p>
+                                    {{else}}
+                                        <p class="texte--g1-2">One Shot</p>
+                                    {{/ifSuperieur}}
+                                {{/ifEquals}}
+                                {{#ifEquals statut "En cours"}}
+                                    {{#ifEquals stock "Vendu"}}
+                                        <p class="texte--g1-2">Vendu</p>
+                                    {{else}}
+                                        <p class="texte--g1-2">Acheté le</p>
+                                    {{/ifEquals}}
+                                {{/ifEquals}}
+                                {{#ifEquals statut "Abandonné"}}
+                                    <p class="texte--g1-2">Abandonné</p>
+                                {{/ifEquals}}
+                            </div>
+                            <div>
+                                {{#ifEquals statut "Terminé"}}
+                                    <span class="lecture_statut texte--g2-1">
+                                        <p>{{volume}}</p>
+                                        <svg aria-hidden="true" focusable="false">
+                                            <use xlink:href="#arrive"></use>
+                                        </svg>
+                                    </span>
+                                {{/ifEquals}}
+                                {{#ifEquals statut "En cours"}}
+                                    {{#ifEquals stock "Vendu"}}
+                                        <span class="lecture_statut texte--g2-2">
+                                            <svg aria-hidden="true" focusable="false">
+                                                <use xlink:href="#piece"></use>
+                                            </svg>
+                                        </span>
+                                    {{else}}
+                                        <span class="lecture_statut texte--g3-1">
+                                            <p>{{volume}}+</p>
+                                            <svg aria-hidden="true" focusable="false">
+                                                <use xlink:href="#caddie"></use>
+                                            </svg>
+                                        </span>                                      
+                                    {{/ifEquals}}
+                                {{/ifEquals}}
+                                {{#ifEquals statut "Abandonné"}}
+                                    <span class="lecture_statut texte--g2-2">
+                                        <p>{{volume}}</p>
+                                        <svg aria-hidden="true" focusable="false">
+                                            <use xlink:href="#livre{{#ifSuperieur volume '1'}}s{{/ifSuperieur}}"></use>
+                                        </svg>
+                                    </span>
+                                {{/ifEquals}}
+                            </div>
                         </li>
                     {{else}}
                         <div class="align-center">

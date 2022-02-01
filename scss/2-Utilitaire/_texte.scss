@@ -1,6 +1,3 @@
-.align-right {
-    text-align: right;
-}
 .align-center {
     text-align: center;
 }
@@ -9,9 +6,6 @@
     font-size: 1.3rem;
     font-weight: 300;
 }
-.texte--s {
-    font-size: .8rem;
-}
 
 .texte--g1-2 {
     color: var(--gamme1__texte2);
@@ -19,6 +13,12 @@
 .texte--g2-1 {
     background-color: var(--gamme2__fond);
     color: var(--gamme2__texte1);
+    fill: var(--gamme2__texte1);
+}
+.texte--g2-2 {
+    background-color: var(--gamme2__fond);
+    color: var(--gamme2__texte2);
+    fill: var(--gamme2__texte2);
 }
 .texte--g3-1 {
     background-color: var(--gamme3__fond);

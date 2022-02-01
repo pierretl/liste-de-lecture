@@ -1,0 +1,24 @@
+.lecture {
+    display: flex;
+    align-items: center;
+    margin-bottom: $espace-l;
+}
+
+.lecture_info {
+    flex-grow: 1;
+    margin-right: $espace-m;
+}
+
+.lecture_libelle {
+    margin-right: $espace-m;
+    text-align: right;
+}
+
+.lecture_statut {
+    display: block;
+    min-width: 45px;
+    padding: $espace-xs $espace-s;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 700;
+}
